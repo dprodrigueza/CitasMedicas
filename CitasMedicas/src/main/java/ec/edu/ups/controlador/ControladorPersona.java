@@ -11,4 +11,10 @@ package ec.edu.ups.controlador;
  */
 public class ControladorPersona {
     
+    public String cedula;
+    public String nombre;
+    public String apellido;
+    public String direccion;
+    public String telefono;
+    
 }
