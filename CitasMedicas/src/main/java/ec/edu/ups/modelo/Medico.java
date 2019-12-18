@@ -20,5 +20,17 @@ public class Medico {
     public String med_usuario;
     public String med_password;
   public int med_persona_id;
+  
+  
+  public Medico(int med_id, int med_numeroConsultorio, String med_usuario, String med_password, int med_persona_id) {
+        this.med_id = med_id;
+       this.med_numeroConsultorio = med_numeroConsultorio;
+       this.med_usuario = med_usuario;
+       this.med_password =  med_password;
+       this.med_persona_id = med_persona_id;
+    }
+  
+  
+  
     
 }
