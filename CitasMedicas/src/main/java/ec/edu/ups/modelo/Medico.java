@@ -5,10 +5,20 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author GeovannyAbad
  */
 public class Medico {
+    
+    
+    
+    public int med_id;
+    public int med_numeroConsultorio;
+    public String med_usuario;
+    public String med_password;
+  public int med_persona_id;
     
 }
