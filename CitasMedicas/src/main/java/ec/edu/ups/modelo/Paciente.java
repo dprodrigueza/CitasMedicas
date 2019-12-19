@@ -22,7 +22,7 @@ public class Paciente {
   public String pa_ocupacion;
   public Persona persona;
 
-    public Paciente(int pa_id, String pa_religion, String pa_recidencia, String pa_procedencia, String pa_ocupacion, Persona persona) {
+    public Paciente(int pa_id) {
         this.pa_id = pa_id;
         this.pa_religion = pa_religion;
         this.pa_recidencia = pa_recidencia;

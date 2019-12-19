@@ -8,6 +8,7 @@ package ec.edu.ups.controlador;
 import ec.edu.ups.modelo.Paciente;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -77,5 +78,54 @@ public class ControladorPaciente {
         }
     }
 
+     public Paciente buscar(int id) {
+
+        String sql = "SELECT * FROM pacientes WHERE  pa_id  ='"  + id + "';";
+         
+        try {
+            conectar();
+            Statement sta = con.createStatement();
+            ResultSet reset = sta.executeQuery(sql);
+            while (reset.next()) {
+                Paciente p = new Paciente(id);
+                //c.setIdCliente(reset.getInt(1));
+                p.setPa_religion(reset.getString(1));
+                p.setPa_recidencia(reset.getString(2));
+                p.setPa_procedencia(reset.getString(3));
+                p.setPa_ocupacion(reset.getString(4));
+
+                return p;
+                
+            }
+            System.out.println("paciente no existe");
+           
+            desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex.getMessage());
+        }
+        return null;
+    }
+     
+    
+     public void actualizar(Paciente p, int id) {
+         
+         
+    String sql = "UPDATE pacientes  SET   pa_id  = '" + p.getPa_id()
+            + "', pa_religion = '" + p.getPa_religion()
+            + "', pa_recidencia = '" + p.getPa_recidencia()
+            + "', pa_procedencia = '"+ p.getPa_procedencia()
+            + "', pa_ocupacion = '" + p.getPa_ocupacion()
+          
+                + " WHERE pa_id ='" + id + "';";
+        System.out.println(sql);
+        try {
+            conectar();
+            Statement sta = con.createStatement();
+            sta.executeUpdate(sql);
+            desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Error  " + ex.getMessage());
+        }
+    }
     
 }
