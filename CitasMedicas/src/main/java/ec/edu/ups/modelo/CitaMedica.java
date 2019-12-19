@@ -17,16 +17,16 @@ public class CitaMedica {
   public int cita_id;
   public Date cita_fecha;
   public Time cita_hora;
-  public int cita_motivo;
-  public Medico medica;
+  public String cita_motivo;
+  public Medico medico;
   public Paciente paciente;
 
-    public CitaMedica(int cita_id, Date cita_fecha, Time cita_hora, int cita_motivo, Medico medica, Paciente paciente) {
+    public CitaMedica(int cita_id) {
         this.cita_id = cita_id;
         this.cita_fecha = cita_fecha;
         this.cita_hora = cita_hora;
         this.cita_motivo = cita_motivo;
-        this.medica = medica;
+        this.medico = medico;
         this.paciente = paciente;
     }
 
@@ -54,20 +54,20 @@ public class CitaMedica {
         this.cita_hora = cita_hora;
     }
 
-    public int getCita_motivo() {
+    public String getCita_motivo() {
         return cita_motivo;
     }
 
-    public void setCita_motivo(int cita_motivo) {
+    public void setCita_motivo(String cita_motivo) {
         this.cita_motivo = cita_motivo;
     }
 
-    public Medico getMedica() {
-        return medica;
+    public Medico getMedico() {
+        return medico;
     }
 
-    public void setMedica(Medico medica) {
-        this.medica = medica;
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
     public Paciente getPaciente() {
@@ -80,7 +80,7 @@ public class CitaMedica {
 
     @Override
     public String toString() {
-        return "CitaMedica{" + "cita_id=" + cita_id + ", cita_fecha=" + cita_fecha + ", cita_hora=" + cita_hora + ", cita_motivo=" + cita_motivo + ", medica=" + medica + ", paciente=" + paciente + '}';
+        return "CitaMedica{" + "cita_id=" + cita_id + ", cita_fecha=" + cita_fecha + ", cita_hora=" + cita_hora + ", cita_motivo=" + cita_motivo + ", medica=" + medico + ", paciente=" + paciente + '}';
     }
   
     

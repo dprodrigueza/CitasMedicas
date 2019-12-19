@@ -50,7 +50,7 @@ public class ControladorPaciente {
     
     public void crear(Paciente p) {
         String sql = "INSERT INTO pacientes VALUES ( " + p.getPa_id()+"'" + p.getPa_religion()+"', '" + p.getPa_recidencia()+ "' , '"
-                + p.getPa_procedencia()+ "', '" + p.getPa_ocupacion()+ "' ,'"+");";
+                + p.getPa_procedencia()+ "', '" + p.getPa_ocupacion()+ "', '" + p.getPersona()+ "' ,'"+");";
         
         System.out.println(""+sql);
         
