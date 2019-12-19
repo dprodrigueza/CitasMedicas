@@ -5,12 +5,19 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.modelo.Diagnostico;
+
+import java.util.List;
+
 /**
  *
  * @author Damián Sumba
  */
 public class ControladorDiagnostico {
     
+    private List<Diagnostico> listaDiagnstico;
     
+   public void registrarDiagnostico (Diagnostico diagnostico){}
     
+   
 }
