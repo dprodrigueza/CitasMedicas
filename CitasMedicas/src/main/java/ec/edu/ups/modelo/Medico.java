@@ -30,6 +30,13 @@ public class Medico {
        this.med_persona_id = med_persona_id;
     }
 
+    public Medico() {
+      
+    }
+
+
+ 
+
     public int getMed_id() {
         return med_id;
     }

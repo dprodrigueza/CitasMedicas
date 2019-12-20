@@ -6,42 +6,37 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.modelo.Paciente;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.testng.Assert.*;
 
 /**
  *
- * @author VIVIANA
+ * @author GeovannyAbad
  */
-public class ControladorPacienteIT {
+public class ControladorPacienteNGTest {
     
-    public ControladorPacienteIT() {
+    public ControladorPacienteNGTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
+
+    @org.testng.annotations.BeforeClass
+    public static void setUpClass() throws Exception {
     }
-    
-    @AfterClass
-    public static void tearDownClass() {
+
+    @org.testng.annotations.AfterClass
+    public static void tearDownClass() throws Exception {
     }
-    
-    @Before
-    public void setUp() {
+
+    @org.testng.annotations.BeforeMethod
+    public void setUpMethod() throws Exception {
     }
-    
-    @After
-    public void tearDown() {
+
+    @org.testng.annotations.AfterMethod
+    public void tearDownMethod() throws Exception {
     }
 
     /**
      * Test of conectar method, of class ControladorPaciente.
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void testConectar() {
         System.out.println("conectar");
         ControladorPaciente instance = new ControladorPaciente();
@@ -53,7 +48,7 @@ public class ControladorPacienteIT {
     /**
      * Test of desconectar method, of class ControladorPaciente.
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void testDesconectar() {
         System.out.println("desconectar");
         ControladorPaciente instance = new ControladorPaciente();
@@ -65,7 +60,7 @@ public class ControladorPacienteIT {
     /**
      * Test of crear method, of class ControladorPaciente.
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void testCrear() {
         System.out.println("crear");
         Paciente p = null;
@@ -78,7 +73,7 @@ public class ControladorPacienteIT {
     /**
      * Test of eliminar method, of class ControladorPaciente.
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void testEliminar() {
         System.out.println("eliminar");
         int id = 0;
@@ -91,14 +86,14 @@ public class ControladorPacienteIT {
     /**
      * Test of buscar method, of class ControladorPaciente.
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void testBuscar() {
         System.out.println("buscar");
         int id = 0;
         ControladorPaciente instance = new ControladorPaciente();
         Paciente expResult = null;
         Paciente result = instance.buscar(id);
-        assertEquals(expResult, result);
+        assertEquals(result, expResult);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -106,7 +101,7 @@ public class ControladorPacienteIT {
     /**
      * Test of actualizar method, of class ControladorPaciente.
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void testActualizar() {
         System.out.println("actualizar");
         Paciente p = null;
