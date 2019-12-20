@@ -10,6 +10,7 @@ import ec.edu.ups.modelo.Diagnostico;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * @author Damián Sumba
  */
 public class ControladorDiagnostico {
-    
+
     private Statement statement;
     private ResultSet r;
     private conexion conexion;
@@ -28,16 +29,36 @@ public class ControladorDiagnostico {
 
     private List<Diagnostico> listaDiagnstico;
 
-    public void registrarDiagnostico(Diagnostico diagnostico) {
-//        String sql = "INSERT INTO Diagnostico VALUES ( " + p.getPa_id() + "'" + p.getPa_religion() + "', '" + p.getPa_recidencia() + "' , '"
-//                + p.getPa_procedencia() + "', '" + p.getPa_ocupacion() + "', '" + p.getPersona() + "' ,'" + ");";
-//
-//        System.out.println("" + sql);
-        
-        String sql = "INSERT INTO Diagnostico VALUES ( " + diagnostico.getCodigoDiagnostico()+ "'" + diagnostico.getEnfermedadActual() + "', '" + diagnostico.getBoca() + "' , '"
-                + diagnostico.getTorax() + "', '" + diagnostico.getAbdomen() + "', '" + diagnostico.getExtremidades() + "' ,'" +  diagnostico.getRegionPerineal() + "','" + ");";
+    public ControladorDiagnostico() {
 
-        System.out.println("" + sql);
+        listaDiagnstico = new ArrayList<>();
+    }
+
+    public void registrarDiagnostico(Diagnostico diagnostico) {
+
+        String sql = "INSERT INTO Diagnostico (codigoDiagnostico, enfermedadActual, boca, torax, abdomen, "
+                + "extremidades, regionPerineal, valoracionNeurologica, ice10, tratamientos " + ")" + " values (?,?,?,?,?,?,?,?,?,?);";
+
+        try {
+            conexion = new conexion();
+            ps = conexion.getConexion().prepareStatement(sql);
+            ps.setInt(1, diagnostico.getCodigoDiagnostico());
+            ps.setString(2, diagnostico.getEnfermedadActual());
+            ps.setString(3, diagnostico.getBoca());
+            ps.setString(4, diagnostico.getTorax());
+            ps.setString(5, diagnostico.getAbdomen());
+            ps.setString(6, diagnostico.getExtremidades());
+            ps.setString(7, diagnostico.getRegionPerineal());
+            ps.setString(8, diagnostico.getValoracionNeurologica());
+            ps.setString(9, diagnostico.getIce10());
+            ps.setString(10, diagnostico.getTratamientos());
+
+        } catch (Exception e) {
+            System.out.println("error" + e.getMessage());
+        } finally {
+            conexion.desconectar();
+        }
+
     }
 
 }
