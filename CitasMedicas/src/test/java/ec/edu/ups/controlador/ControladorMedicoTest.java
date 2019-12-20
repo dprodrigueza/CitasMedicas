@@ -39,30 +39,6 @@ public class ControladorMedicoTest {
     }
 
     /**
-     * Test of conectar method, of class ControladorMedico.
-     */
-    @Test
-    public void testConectar() {
-        System.out.println("conectar");
-        ControladorMedico instance = new ControladorMedico();
-        instance.conectar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of desconectar method, of class ControladorMedico.
-     */
-    @Test
-    public void testDesconectar() {
-        System.out.println("desconectar");
-        ControladorMedico instance = new ControladorMedico();
-        instance.desconectar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of crear method, of class ControladorMedico.
      */
     @Test
