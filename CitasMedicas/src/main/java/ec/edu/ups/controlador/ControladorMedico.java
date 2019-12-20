@@ -5,6 +5,18 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modelo.Medico;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+
+
+
 /**
  *
  * @author GeovannyAbad
