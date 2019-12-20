@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author diego
  */
-public class Persona {
+public abstract class Persona {
 
     public String cedula;
     public String nombres;
