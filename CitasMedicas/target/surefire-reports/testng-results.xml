@@ -2,10 +2,10 @@
 <testng-results skipped="0" failed="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="ec.edu.ups.modelo.CitaMedicaIT" duration-ms="3" started-at="2019-12-20T17:30:50Z" finished-at="2019-12-20T17:30:50Z">
+  <suite name="ec.edu.ups.controlador.ControladorMedicoTest" duration-ms="4" started-at="2019-12-20T18:07:06Z" finished-at="2019-12-20T18:07:06Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="3" started-at="2019-12-20T17:30:50Z" finished-at="2019-12-20T17:30:50Z">
+    <test name="Command line test" duration-ms="4" started-at="2019-12-20T18:07:06Z" finished-at="2019-12-20T18:07:06Z">
     </test> <!-- Command line test -->
-  </suite> <!-- ec.edu.ups.modelo.CitaMedicaIT -->
+  </suite> <!-- ec.edu.ups.controlador.ControladorMedicoTest -->
 </testng-results>

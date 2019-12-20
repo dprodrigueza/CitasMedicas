@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,10 +26,15 @@ import java.util.List;
 public class ControladorMedico {
     
     
-     private Connection con;
     private List<Medico> medica;
 
-    public void conectar() {
+    public ControladorMedico() {
+        medica = new ArrayList<Medico>();
+    }
+    
+    
+
+   /* public void conectar() {
         con = null;
         try {
             con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "cuenca");
@@ -52,11 +58,11 @@ public class ControladorMedico {
                 System.out.println("Error Al Desconectar " + ex.getMessage());
             }
         }
-    }
+    }/*
     
     
     
-    public boolean crear(Medico m) {
+    /*public boolean crear(Medico m) {
         String sql = "INSERT INTO medico VALUES ( " + m.getMedico_id()+"'" + m.getMedico_numeroConsultorio()+"', '" + m.getMedico_usuario()+ "' , '"
                 + m.getMedico_password()+ "', '" + m.getMedico_persona_id()+ "' ,'"+");";
         
@@ -73,10 +79,18 @@ public class ControladorMedico {
             return false;
         }
         return true;
+    }*/
+    
+    public boolean crear(Medico m){
+        
+        medica.add(m);
+        
+        return true;
+        
     }
     
     
-    public void eliminar(int medico_id) {
+    /*public void eliminar(int medico_id) {
          String sql = "DELETE FROM medico WHERE  cita_id  =" + medico_id + ";";
         try {
             conectar();
@@ -154,7 +168,7 @@ public class ControladorMedico {
 		}
 		return m;
 	}
-     
+     */
     
     
     
