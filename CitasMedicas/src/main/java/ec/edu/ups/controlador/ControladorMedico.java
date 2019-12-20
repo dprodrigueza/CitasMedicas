@@ -55,7 +55,22 @@ public class ControladorMedico {
     
     
     
-    
+    public void crear(Medico m) {
+        String sql = "INSERT INTO medico VALUES ( " + m.getMed_id()+"'" + m.getMed_numeroConsultorio()+"', '" + m.getMed_usuario()+ "' , '"
+                + m.getMed_password()+ "', '" + m.getMed_persona_id()+ "' ,'"+");";
+        
+        System.out.println(""+sql);
+        
+        try {
+            conectar();
+            Statement sta = con.createStatement();
+            sta.executeUpdate(sql);
+            desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex.getMessage());
+            System.out.println(sql);
+        }
+    }
     
     
     
