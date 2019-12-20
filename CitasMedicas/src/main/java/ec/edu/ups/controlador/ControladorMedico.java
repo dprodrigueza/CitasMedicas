@@ -109,11 +109,11 @@ public class ControladorMedico {
 				if (rs.getString("cli_id").trim().equals(med_id)) {
 
 					m.setMed_id(rs.getInt("med_id".trim()));
-					cl.setNombres(rs.getString("cli_nombres".trim()));
-					cl.setApellidos(rs.getString("cli_apellidos".trim()));
-					cl.setEmail(rs.getString("cli_email".trim()));
-					cl.setDireccion(rs.getString("cli_direccion".trim()));
-					cl.setTelefono(rs.getString("cli_telefono".trim()));
+					m.setMed_numeroConsultorio(rs.getInt("med_numeroConsultorio".trim()));
+					m.setMed_usuario(rs.getString(" med_usuario".trim()));
+					m.setMed_password(rs.getString("med_password".trim()));
+					m.setMed_persona_id(rs.getInt("med_persona_id".trim()));
+					
 					
 
 				}
@@ -122,9 +122,9 @@ public class ControladorMedico {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			ConexionBD.close(con);
+			 desconectar();
 		}
-		return cl;
+		return m;
 	}
      
     
