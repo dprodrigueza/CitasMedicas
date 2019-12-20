@@ -23,4 +23,43 @@ import java.util.List;
  */
 public class ControladorMedico {
     
+    
+     private Connection con;
+    private List<Medico> medica;
+
+    public void conectar() {
+        con = null;
+        try {
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "cuenca");
+           
+
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage() + " Error de Conexion");
+        }
+        if (con != null) {
+            System.out.println("Conexión Exitosa");
+        }
+    }
+    
+      public void desconectar() {
+        if (con != null) {
+            try {
+                con.close();
+                System.out.println("Conexion Cerrada");
+            } catch (SQLException ex) {
+                System.out.println("Error Al Desconectar " + ex.getMessage());
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
