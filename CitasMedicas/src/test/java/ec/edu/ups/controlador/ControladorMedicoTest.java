@@ -73,14 +73,9 @@ public class ControladorMedicoTest {
         instance.crear(m);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-     
-        String sql = "INSERT INTO medico VALUES ( " + m.getMedico_id()+"'" + m.getMedico_numeroConsultorio()+"', '" + m.getMedico_usuario()+ "' , '"
-                + m.getMedico_password()+ "', '" + m.getMedico_persona_id()+ "' ,'"+");";
-       
-    String resultado = "de";
-    
-        assertEquals(sql, resultado);
-       
+        
+        
+        
     }
 
     /**
