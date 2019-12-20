@@ -87,6 +87,32 @@ public class ControladorMedico {
     }
     
     
+      public void actualizar(Medico m, int med_id) {
+         
+         
+    String sql = "UPDATE medico  SET   med_id  = '" + m.getMed_id()
+            + "', med_numeroConsultorio = '" + m.getMed_numeroConsultorio()
+            + "', med_usuario = '" + m.getMed_usuario()
+            + "', med_password = '"+ m.getMed_password()
+            + "', med_persona_id = '" + m.getMed_persona_id()
+            
+          
+                + " WHERE med_id ='" + med_id + "';";
+        System.out.println("Actualizado con exito");
+        try {
+            conectar();
+            Statement sta = con.createStatement();
+            sta.executeUpdate(sql);
+            desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Error  " + ex.getMessage());
+        }
+    }
+    
+    
+    
+    
+    
     
    // Metodo Buscar
 
@@ -131,10 +157,6 @@ public class ControladorMedico {
     
     
     
-    
-    
-    
-    
-    
+  
     
 }
