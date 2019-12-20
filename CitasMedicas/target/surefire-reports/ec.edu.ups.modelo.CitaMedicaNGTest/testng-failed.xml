@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [ec.edu.ups.modelo.CitaMedicaNGTest]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="ec.edu.ups.modelo.CitaMedicaNGTest">
+        <methods>
+          <include name="testSetCita_motivo"/>
+          <include name="testGetCita_motivo"/>
+          <include name="testSetPaciente"/>
+          <include name="testGetMedico"/>
+          <include name="testSetMedico"/>
+          <include name="tearDownMethod"/>
+          <include name="testGetCita_fecha"/>
+          <include name="testSetCita_id"/>
+          <include name="setUpClass"/>
+          <include name="testGetCita_hora"/>
+          <include name="tearDownClass"/>
+          <include name="testGetCita_id"/>
+          <include name="testGetPaciente"/>
+          <include name="testSetCita_hora"/>
+          <include name="setUpMethod"/>
+          <include name="testSetCita_fecha"/>
+          <include name="testToString"/>
+        </methods>
+      </class> <!-- ec.edu.ups.modelo.CitaMedicaNGTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [ec.edu.ups.modelo.CitaMedicaNGTest] -->
