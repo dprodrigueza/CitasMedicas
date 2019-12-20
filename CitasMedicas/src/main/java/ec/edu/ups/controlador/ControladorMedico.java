@@ -73,7 +73,17 @@ public class ControladorMedico {
     }
     
     
-    
+    public void eliminar(int med_id) {
+         String sql = "DELETE FROM medico WHERE  cita_id  =" + med_id + ";";
+        try {
+            conectar();
+            Statement sta = con.createStatement();
+            sta.executeUpdate(sql);
+            desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Error al eliminar" + ex.getMessage());
+        }
+    }
     
     
     
