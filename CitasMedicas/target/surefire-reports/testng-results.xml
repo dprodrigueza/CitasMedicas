@@ -2,19 +2,10 @@
 <testng-results skipped="0" failed="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-<<<<<<< HEAD
-  <suite name="ec.edu.ups.modelo.PacienteTest" duration-ms="6" started-at="2019-12-20T15:05:18Z" finished-at="2019-12-20T15:05:18Z">
+  <suite name="ec.edu.ups.modelo.CitaMedicaIT" duration-ms="7" started-at="2019-12-20T16:30:36Z" finished-at="2019-12-20T16:30:36Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="6" started-at="2019-12-20T15:05:18Z" finished-at="2019-12-20T15:05:18Z">
+    <test name="Command line test" duration-ms="7" started-at="2019-12-20T16:30:36Z" finished-at="2019-12-20T16:30:36Z">
     </test> <!-- Command line test -->
-  </suite> <!-- ec.edu.ups.modelo.PacienteTest -->
-=======
-  <suite name="ec.edu.ups.controlador.ControladorPacienteTest" duration-ms="2" started-at="2019-12-20T04:05:02Z" finished-at="2019-12-20T04:05:02Z">
-    <groups>
-    </groups>
-    <test name="Command line test" duration-ms="2" started-at="2019-12-20T04:05:02Z" finished-at="2019-12-20T04:05:02Z">
-    </test> <!-- Command line test -->
-  </suite> <!-- ec.edu.ups.controlador.ControladorPacienteTest -->
->>>>>>> d9882f7d5c91ce16bdf9d809c6428c6aa10f58e0
+  </suite> <!-- ec.edu.ups.modelo.CitaMedicaIT -->
 </testng-results>
