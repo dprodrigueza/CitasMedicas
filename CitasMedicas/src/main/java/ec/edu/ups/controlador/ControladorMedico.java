@@ -56,7 +56,7 @@ public class ControladorMedico {
     
     
     
-    public void crear(Medico m) {
+    public boolean crear(Medico m) {
         String sql = "INSERT INTO medico VALUES ( " + m.getMedico_id()+"'" + m.getMedico_numeroConsultorio()+"', '" + m.getMedico_usuario()+ "' , '"
                 + m.getMedico_password()+ "', '" + m.getMedico_persona_id()+ "' ,'"+");";
         
@@ -70,7 +70,9 @@ public class ControladorMedico {
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
             System.out.println(sql);
+            return false;
         }
+        return true;
     }
     
     
