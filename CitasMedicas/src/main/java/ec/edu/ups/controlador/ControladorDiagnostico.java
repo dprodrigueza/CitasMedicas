@@ -19,7 +19,7 @@ import java.util.List;
  * @author Damián Sumba
  */
 public class ControladorDiagnostico {
-    
+
     private Statement statement;
     private ResultSet r;
     private conexion conexion;
@@ -30,43 +30,35 @@ public class ControladorDiagnostico {
     private List<Diagnostico> listaDiagnstico;
 
     public ControladorDiagnostico() {
-        
-        listaDiagnstico =  new ArrayList<>();
+
+        listaDiagnstico = new ArrayList<>();
     }
-    
-    
 
     public void registrarDiagnostico(Diagnostico diagnostico) {
-//String sql = "INSERT INTO cliente (cedula, nombre, apellido, direccion, telefono, celular, correo " + ") " + " values (?,?,?,?,?,?,?);";
-//        try {
-//            conexion = new conexion();
-//            ps = conexion.getConexion().prepareStatement(sql);
-//            ps.setString(1, c.getCedula());
-//            ps.setString(2, c.getNombre());
-//            ps.setString(3, c.getApellido());
-//            ps.setString(4, c.getDireccion());
-//            ps.setString(5, c.getTelefono());
-//            ps.setString(6, c.getCelular());
-//            ps.setString(7, c.getCorreo());
-//            ps.execute();
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        } finally {
-//            conexion.desconectar();
-//        }
-//public int codigoDiagnostico;
-//    public String enfermedadActual;
-//    public String boca;
-//    public String torax;
-//    public String abdomen;
-//    public String extremidades;
-//    public String regionPerineal;
-//    public String valoracionNeurologica;
-//    public String ice10;
-//    public String tratamientos;
 
-       String sql =  "INSERT INTO Diagnostico (codigoDiagnostico, enfermedadActual, boca, torax, abdomen, "
-               + "extremidades, regionPerineal, valoracionNeurologica, ice10, tratamientos "+ ")" + " values (?,?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO Diagnostico (codigoDiagnostico, enfermedadActual, boca, torax, abdomen, "
+                + "extremidades, regionPerineal, valoracionNeurologica, ice10, tratamientos " + ")" + " values (?,?,?,?,?,?,?,?,?,?);";
+
+        try {
+            conexion = new conexion();
+            ps = conexion.getConexion().prepareStatement(sql);
+            ps.setInt(1, diagnostico.getCodigoDiagnostico());
+            ps.setString(2, diagnostico.getEnfermedadActual());
+            ps.setString(3, diagnostico.getBoca());
+            ps.setString(4, diagnostico.getTorax());
+            ps.setString(5, diagnostico.getAbdomen());
+            ps.setString(6, diagnostico.getExtremidades());
+            ps.setString(7, diagnostico.getRegionPerineal());
+            ps.setString(8, diagnostico.getValoracionNeurologica());
+            ps.setString(9, diagnostico.getIce10());
+            ps.setString(10, diagnostico.getTratamientos());
+
+        } catch (Exception e) {
+            System.out.println("error" + e.getMessage());
+        } finally {
+            conexion.desconectar();
+        }
+
     }
 
 }
