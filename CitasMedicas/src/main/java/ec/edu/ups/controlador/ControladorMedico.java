@@ -28,10 +28,10 @@ public class ControladorMedico {
      private Connection con;
     private List<Medico> medica;
 
-    public void conectar() {
+   /* public void conectar() {
         con = null;
         try {
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "cuenca");
+            //con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "cuenca");
            
 
 
@@ -54,7 +54,7 @@ public class ControladorMedico {
         }
     }
     
-    
+    */
     
     public void crear(Medico m) {
         String sql = "INSERT INTO medico VALUES ( " + m.getMed_id()+"'" + m.getMed_numeroConsultorio()+"', '" + m.getMed_usuario()+ "' , '"
@@ -63,10 +63,10 @@ public class ControladorMedico {
         System.out.println(""+sql);
         
         try {
-            conectar();
+           // conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+            //desconectar();
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
             System.out.println(sql);
@@ -77,10 +77,10 @@ public class ControladorMedico {
     public void eliminar(int med_id) {
          String sql = "DELETE FROM medico WHERE  cita_id  =" + med_id + ";";
         try {
-            conectar();
+            //conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+            //desconectar();
         } catch (SQLException ex) {
             System.out.println("Error al eliminar" + ex.getMessage());
         }
@@ -100,10 +100,10 @@ public class ControladorMedico {
                 + " WHERE med_id ='" + med_id + "';";
         System.out.println("Actualizado con exito");
         try {
-            conectar();
+            //conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+            //desconectar();
         } catch (SQLException ex) {
             System.out.println("Error  " + ex.getMessage());
         }
@@ -122,7 +122,7 @@ public class ControladorMedico {
 
 		Connection con = null;
 		try {
-                    conectar();
+              //      conectar();
 		
 			PreparedStatement ps = con.prepareStatement(sql);
 			// resultset es todas las filas de la tabla
@@ -148,15 +148,9 @@ public class ControladorMedico {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			 desconectar();
+			 //desconectar();
 		}
 		return m;
 	}
      
-    
-    
-    
-    
-  
-    
-}
+    }
