@@ -21,6 +21,8 @@ public class ControladorPaciente {
     
     private Connection con;
     private List<Paciente> pacientes;
+    
+    
 
     public void conectar() {
         con = null;
