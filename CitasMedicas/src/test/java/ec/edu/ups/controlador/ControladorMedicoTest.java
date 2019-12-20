@@ -81,9 +81,9 @@ public class ControladorMedicoTest {
     @Test
     public void testEliminar() {
         System.out.println("eliminar");
-        int med_id = 0;
+        int medico_id = 0;
         ControladorMedico instance = new ControladorMedico();
-        instance.eliminar(med_id);
+        instance.eliminar(medico_id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -95,9 +95,9 @@ public class ControladorMedicoTest {
     public void testActualizar() {
         System.out.println("actualizar");
         Medico m = null;
-        int med_id = 0;
+        int medico_id = 0;
         ControladorMedico instance = new ControladorMedico();
-        instance.actualizar(m, med_id);
+        instance.actualizar(m, medico_id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
