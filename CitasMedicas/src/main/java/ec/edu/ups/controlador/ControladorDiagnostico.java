@@ -10,6 +10,7 @@ import ec.edu.ups.modelo.Diagnostico;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -28,16 +29,44 @@ public class ControladorDiagnostico {
 
     private List<Diagnostico> listaDiagnstico;
 
-    public void registrarDiagnostico(Diagnostico diagnostico) {
-//        String sql = "INSERT INTO Diagnostico VALUES ( " + p.getPa_id() + "'" + p.getPa_religion() + "', '" + p.getPa_recidencia() + "' , '"
-//                + p.getPa_procedencia() + "', '" + p.getPa_ocupacion() + "', '" + p.getPersona() + "' ,'" + ");";
-//
-//        System.out.println("" + sql);
+    public ControladorDiagnostico() {
         
-        String sql = "INSERT INTO Diagnostico VALUES ( " + diagnostico.getCodigoDiagnostico()+ "'" + diagnostico.getEnfermedadActual() + "', '" + diagnostico.getBoca() + "' , '"
-                + diagnostico.getTorax() + "', '" + diagnostico.getAbdomen() + "', '" + diagnostico.getExtremidades() + "' ,'" +  diagnostico.getRegionPerineal() + "','" + ");";
+        listaDiagnstico =  new ArrayList<>();
+    }
+    
+    
 
-        System.out.println("" + sql);
+    public void registrarDiagnostico(Diagnostico diagnostico) {
+//String sql = "INSERT INTO cliente (cedula, nombre, apellido, direccion, telefono, celular, correo " + ") " + " values (?,?,?,?,?,?,?);";
+//        try {
+//            conexion = new conexion();
+//            ps = conexion.getConexion().prepareStatement(sql);
+//            ps.setString(1, c.getCedula());
+//            ps.setString(2, c.getNombre());
+//            ps.setString(3, c.getApellido());
+//            ps.setString(4, c.getDireccion());
+//            ps.setString(5, c.getTelefono());
+//            ps.setString(6, c.getCelular());
+//            ps.setString(7, c.getCorreo());
+//            ps.execute();
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        } finally {
+//            conexion.desconectar();
+//        }
+//public int codigoDiagnostico;
+//    public String enfermedadActual;
+//    public String boca;
+//    public String torax;
+//    public String abdomen;
+//    public String extremidades;
+//    public String regionPerineal;
+//    public String valoracionNeurologica;
+//    public String ice10;
+//    public String tratamientos;
+
+       String sql =  "INSERT INTO Diagnostico (codigoDiagnostico, enfermedadActual, boca, torax, abdomen, "
+               + "extremidades, regionPerineal, valoracionNeurologica, ice10, tratamientos "+ ")" + " values (?,?,?,?,?,?,?,?,?,?);";
     }
 
 }
