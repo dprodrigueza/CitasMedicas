@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author GeovannyAbad
  */
-public class Medico {
+public class Medico extends Persona{
     
     
     
@@ -19,16 +19,15 @@ public class Medico {
     public int medico_numeroConsultorio;
     public String medico_usuario;
     public String medico_password;
-  public int medico_persona_id;
-  
-  
-  public Medico(int medico_id, int medico_numeroConsultorio, String medico_usuario, String medico_password, int medico_persona_id) {
+
+    public Medico(int medico_id, int medico_numeroConsultorio, String medico_usuario, String medico_password, String cedula, String nombres, String apellidos, String telefono, String direccion, Date fechaNacimiento, String sexo) {
+        super(cedula, nombres, apellidos, telefono, direccion, fechaNacimiento, sexo);
         this.medico_id = medico_id;
-       this.medico_numeroConsultorio = medico_numeroConsultorio;
-       this.medico_usuario = medico_usuario;
-       this.medico_password =  medico_password;
-       this.medico_persona_id = medico_persona_id;
+        this.medico_numeroConsultorio = medico_numeroConsultorio;
+        this.medico_usuario = medico_usuario;
+        this.medico_password = medico_password;
     }
+
 
     public Medico() {
       
@@ -66,22 +65,10 @@ public class Medico {
         this.medico_password = medico_password;
     }
 
-    public int getMedico_persona_id() {
-        return medico_persona_id;
-    }
-
-    public void setMedico_persona_id(int medico_persona_id) {
-        this.medico_persona_id = medico_persona_id;
-    }
-
 
  
 
    
   
   
-   public String mostrarInfoMedico() {
-        return "Medico{" + "medico_id=" + medico_id + ", medico_numeroConsultorio=" + medico_numeroConsultorio + ", medico_usuario=" + medico_usuario + ", medico_password=" + medico_password + ", medico_persona_id=" + medico_persona_id +  '}';
-    }
-    
 }
