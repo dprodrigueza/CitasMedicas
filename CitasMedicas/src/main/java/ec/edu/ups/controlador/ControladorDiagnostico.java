@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,6 +60,30 @@ public class ControladorDiagnostico {
             conexion.desconectar();
         }
 
+    }
+
+    public void modificarDiagnostico(Diagnostico diagnostico) {
+        String sql = "UPDATE Diagnostico set enfermedadActual=?, boca=?, torax=?, abdomen=?, extremidades=?, regionPerineal=?, valoracionNeurologica=?, ice10=?, tratamientos=?  where cedula='" + diagnostico.getCodigoDiagnostico() + "';";
+        
+        try {
+            conexion = new conexion();
+            ps = conexion.getConexion().prepareStatement(sql);
+            ps.setString(1, diagnostico.getEnfermedadActual());
+            ps.setString(2, diagnostico.getBoca());
+            ps.setString(3, diagnostico.getTorax());
+            ps.setString(4, diagnostico.getAbdomen());
+            ps.setString(5, diagnostico.getExtremidades());
+            ps.setString(6, diagnostico.getRegionPerineal());
+            ps.setString(7, diagnostico.getValoracionNeurologica());
+            ps.setString(8, diagnostico.getIce10());
+            ps.setString(9, diagnostico.getTratamientos());
+
+        } catch (Exception e) {
+            System.out.println("error" + e.getMessage());
+            JOptionPane.showMessageDialog(null, "NO EXISTE");
+        } finally {
+            conexion.desconectar();
+        }
     }
 
 }
