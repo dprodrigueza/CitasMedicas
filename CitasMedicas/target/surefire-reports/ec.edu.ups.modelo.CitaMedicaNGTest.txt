@@ -1,41 +1,41 @@
 -------------------------------------------------------------------------------
 Test set: ec.edu.ups.modelo.CitaMedicaNGTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 1.403 sec <<< FAILURE!
-testGetCita_fecha(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.012 sec  <<< FAILURE!
+Tests run: 13, Failures: 13, Errors: 0, Skipped: 0, Time elapsed: 0.967 sec <<< FAILURE!
+testGetCita_fecha(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.01 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_fecha(CitaMedicaNGTest.java:72)
 testGetCita_hora(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_hora(CitaMedicaNGTest.java:99)
-testGetCita_id(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0 sec  <<< FAILURE!
+testGetCita_id(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_id(CitaMedicaNGTest.java:45)
-testGetCita_motivo(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0 sec  <<< FAILURE!
+testGetCita_motivo(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_motivo(CitaMedicaNGTest.java:126)
-testGetMedico(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.006 sec  <<< FAILURE!
+testGetMedico(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.004 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetMedico(CitaMedicaNGTest.java:153)
-testGetPaciente(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+testGetPaciente(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetPaciente(CitaMedicaNGTest.java:180)
-testSetCita_fecha(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.003 sec  <<< FAILURE!
+testSetCita_fecha(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetCita_fecha(CitaMedicaNGTest.java:86)
 testSetCita_hora(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetCita_hora(CitaMedicaNGTest.java:113)
-testSetCita_id(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+testSetCita_id(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetCita_id(CitaMedicaNGTest.java:59)
 testSetCita_motivo(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetCita_motivo(CitaMedicaNGTest.java:140)
-testSetMedico(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0 sec  <<< FAILURE!
+testSetMedico(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetMedico(CitaMedicaNGTest.java:167)
-testSetPaciente(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.01 sec  <<< FAILURE!
+testSetPaciente(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetPaciente(CitaMedicaNGTest.java:194)
 testToString(ec.edu.ups.modelo.CitaMedicaNGTest)  Time elapsed: 0.002 sec  <<< FAILURE!

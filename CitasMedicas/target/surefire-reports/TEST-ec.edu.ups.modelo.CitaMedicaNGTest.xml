@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="13" failures="13" name="ec.edu.ups.modelo.CitaMedicaNGTest" time="1.404" errors="0" skipped="0">
+<testsuite tests="13" failures="13" name="ec.edu.ups.modelo.CitaMedicaNGTest" time="0.968" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/jre/lib"/>
@@ -64,7 +64,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetCita_fecha" time="0.012">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetCita_fecha" time="0.01">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_fecha(CitaMedicaNGTest.java:72)
 </failure>
@@ -78,35 +78,35 @@
     <system-out>getCita_hora
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetCita_id" time="0">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetCita_id" time="0.001">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_id(CitaMedicaNGTest.java:45)
 </failure>
     <system-out>getCita_id
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetCita_motivo" time="0">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetCita_motivo" time="0.002">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetCita_motivo(CitaMedicaNGTest.java:126)
 </failure>
     <system-out>getCita_motivo
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetMedico" time="0.006">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetMedico" time="0.004">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetMedico(CitaMedicaNGTest.java:153)
 </failure>
     <system-out>getMedico
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetPaciente" time="0.002">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testGetPaciente" time="0.001">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testGetPaciente(CitaMedicaNGTest.java:180)
 </failure>
     <system-out>getPaciente
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetCita_fecha" time="0.003">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetCita_fecha" time="0.002">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetCita_fecha(CitaMedicaNGTest.java:86)
 </failure>
@@ -120,7 +120,7 @@
     <system-out>setCita_hora
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetCita_id" time="0.002">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetCita_id" time="0.001">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetCita_id(CitaMedicaNGTest.java:59)
 </failure>
@@ -134,14 +134,14 @@
     <system-out>setCita_motivo
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetMedico" time="0">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetMedico" time="0.001">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetMedico(CitaMedicaNGTest.java:167)
 </failure>
     <system-out>setMedico
 </system-out>
   </testcase>
-  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetPaciente" time="0.01">
+  <testcase classname="ec.edu.ups.modelo.CitaMedicaNGTest" name="testSetPaciente" time="0">
     <failure type="java.lang.NullPointerException">java.lang.NullPointerException
 	at ec.edu.ups.modelo.CitaMedicaNGTest.testSetPaciente(CitaMedicaNGTest.java:194)
 </failure>

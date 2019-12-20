@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="Failed suite [Command line suite]">
+<suite verbose="0" name="Failed suite [ec.edu.ups.modelo.CitaMedicaNGTest]">
   <test name="Command line test(failed)">
     <classes>
-      <class name="ec.edu.ups.modelo.MedicoNGTest">
-        <methods>
-          <include name="testSetMedico_usuario"/>
-          <include name="setUpClass"/>
-          <include name="testGetMedico_password"/>
-          <include name="tearDownMethod"/>
-          <include name="tearDownClass"/>
-          <include name="testSetMedico_id"/>
-          <include name="testGetMedico_usuario"/>
-          <include name="testGetMedico_id"/>
-          <include name="testGetMedico_persona_id"/>
-          <include name="testSetMedico_persona_id"/>
-          <include name="testGetMedico_numeroConsultorio"/>
-          <include name="testSetMedico_numeroConsultorio"/>
-          <include name="testSetMedico_password"/>
-          <include name="testMostrarInfoMedico"/>
-          <include name="setUpMethod"/>
-        </methods>
-      </class> <!-- ec.edu.ups.modelo.MedicoNGTest -->
       <class name="ec.edu.ups.modelo.CitaMedicaNGTest">
         <methods>
           <include name="testSetCita_motivo"/>
@@ -43,20 +24,6 @@
           <include name="testToString"/>
         </methods>
       </class> <!-- ec.edu.ups.modelo.CitaMedicaNGTest -->
-      <class name="ec.edu.ups.controlador.ControladorMedicoNGTest">
-        <methods>
-          <include name="testEliminar"/>
-          <include name="tearDownMethod"/>
-          <include name="testConectar"/>
-          <include name="testDesconectar"/>
-          <include name="tearDownClass"/>
-          <include name="testCrear"/>
-          <include name="setUpMethod"/>
-          <include name="setUpClass"/>
-          <include name="testBuscarMedico"/>
-          <include name="testActualizar"/>
-        </methods>
-      </class> <!-- ec.edu.ups.controlador.ControladorMedicoNGTest -->
     </classes>
   </test> <!-- Command line test(failed) -->
-</suite> <!-- Failed suite [Command line suite] -->
+</suite> <!-- Failed suite [ec.edu.ups.modelo.CitaMedicaNGTest] -->

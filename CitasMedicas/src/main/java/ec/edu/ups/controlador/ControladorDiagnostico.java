@@ -31,7 +31,8 @@ public class ControladorDiagnostico {
 
     public ControladorDiagnostico() {
 
-        listaDiagnstico = new ArrayList<>();
+        listaDiagnstico = new ArrayList<Diagnostico>();
+        
     }
 
     public void registrarDiagnostico(Diagnostico diagnostico) {
