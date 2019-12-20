@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ec.edu.ups.modelo.PacienteTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.677 sec
+=======
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 sec
+>>>>>>> d9882f7d5c91ce16bdf9d809c6428c6aa10f58e0

@@ -56,9 +56,9 @@ public class ControladorMedico {
     
     
     
-    public void crear(Medico m) {
-        String sql = "INSERT INTO medico VALUES ( " + m.getMed_id()+"'" + m.getMed_numeroConsultorio()+"', '" + m.getMed_usuario()+ "' , '"
-                + m.getMed_password()+ "', '" + m.getMed_persona_id()+ "' ,'"+");";
+    public boolean crear(Medico m) {
+        String sql = "INSERT INTO medico VALUES ( " + m.getMedico_id()+"'" + m.getMedico_numeroConsultorio()+"', '" + m.getMedico_usuario()+ "' , '"
+                + m.getMedico_password()+ "', '" + m.getMedico_persona_id()+ "' ,'"+");";
         
         System.out.println(""+sql);
         
@@ -70,12 +70,14 @@ public class ControladorMedico {
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
             System.out.println(sql);
+            return false;
         }
+        return true;
     }
     
     
-    public void eliminar(int med_id) {
-         String sql = "DELETE FROM medico WHERE  cita_id  =" + med_id + ";";
+    public void eliminar(int medico_id) {
+         String sql = "DELETE FROM medico WHERE  cita_id  =" + medico_id + ";";
         try {
             conectar();
             Statement sta = con.createStatement();
@@ -87,17 +89,17 @@ public class ControladorMedico {
     }
     
     
-      public void actualizar(Medico m, int med_id) {
+      public void actualizar(Medico m, int medico_id) {
          
          
-    String sql = "UPDATE medico  SET   med_id  = '" + m.getMed_id()
-            + "', med_numeroConsultorio = '" + m.getMed_numeroConsultorio()
-            + "', med_usuario = '" + m.getMed_usuario()
-            + "', med_password = '"+ m.getMed_password()
-            + "', med_persona_id = '" + m.getMed_persona_id()
+    String sql = "UPDATE medico  SET   med_id  = '" + m.getMedico_id()
+            + "', med_numeroConsultorio = '" + m.getMedico_numeroConsultorio()
+            + "', med_usuario = '" + m.getMedico_usuario()
+            + "', med_password = '"+ m.getMedico_password()
+            + "', med_persona_id = '" + m.getMedico_persona_id()
             
           
-                + " WHERE med_id ='" + med_id + "';";
+                + " WHERE med_id ='" + medico_id + "';";
         System.out.println("Actualizado con exito");
         try {
             conectar();
@@ -134,11 +136,11 @@ public class ControladorMedico {
 
 				if (rs.getString("cli_id").trim().equals(med_id)) {
 
-					m.setMed_id(rs.getInt("med_id".trim()));
-					m.setMed_numeroConsultorio(rs.getInt("med_numeroConsultorio".trim()));
-					m.setMed_usuario(rs.getString(" med_usuario".trim()));
-					m.setMed_password(rs.getString("med_password".trim()));
-					m.setMed_persona_id(rs.getInt("med_persona_id".trim()));
+					m.setMedico_id(rs.getInt("med_id".trim()));
+					m.setMedico_numeroConsultorio(rs.getInt("med_numeroConsultorio".trim()));
+					m.setMedico_usuario(rs.getString(" med_usuario".trim()));
+					m.setMedico_password(rs.getString("med_password".trim()));
+					m.setMedico_persona_id(rs.getInt("med_persona_id".trim()));
 					
 					
 

@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Damián Sumba
+ * @author GeovannyAbad
  */
 public class CitaMedicaTest {
     
