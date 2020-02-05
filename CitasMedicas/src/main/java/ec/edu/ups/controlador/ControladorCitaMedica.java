@@ -5,10 +5,12 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.CitaMedica;
 import ec.edu.ups.modelo.Paciente;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,34 +22,13 @@ import java.util.List;
  */
 public class ControladorCitaMedica {
     
-        private Connection con;
+    private Connection con;
     private List<CitaMedica> citaMedica;
-
-    public void conectar() {
-        con = null;
-        try {
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "123kelly");
-           
-
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage() + " Error de Conexion sadjsjd");
-        }
-        if (con != null) {
-            System.out.println("Conexión Exitosa");
-        }
-    }
-    
-      public void desconectar() {
-        if (con != null) {
-            try {
-                con.close();
-                System.out.println("Desconexión Exitosa");
-            } catch (SQLException ex) {
-                System.out.println("Error Al Desconectar " + ex.getMessage());
-            }
-        }
-    }
+    private Statement statement;
+    private ResultSet r;
+    private conexion conexion;
+    private PreparedStatement ps;
+   
     
     public void crear(CitaMedica cm) {
         String sql = "INSERT INTO cita_medica VALUES ( " + cm.getCita_id()+"'" + cm.getCita_fecha()+"', '" + cm.getCita_hora()+ "' , '"
