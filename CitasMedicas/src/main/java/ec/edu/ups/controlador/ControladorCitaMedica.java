@@ -9,12 +9,16 @@ import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.CitaMedica;
 import ec.edu.ups.modelo.Paciente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,27 +27,37 @@ import java.util.List;
 public class ControladorCitaMedica {
     
     private Connection con;
-    private List<CitaMedica> citaMedica;
+    private List<CitaMedica> listacitaMedica;
     private Statement statement;
     private ResultSet r;
     private conexion conexion;
     private PreparedStatement ps;
-   
     
-    public void crear(CitaMedica cm) {
-        String sql = "INSERT INTO cita_medica VALUES ( " + cm.getCita_id()+"'" + cm.getCita_fecha()+"', '" + cm.getCita_hora()+ "' , '"
-                + cm.getCita_motivo()+ "', '" + cm.getMedico()+ "', '" + cm.getPaciente()+"' ,'"+");";
-        
-        System.out.println(""+sql);
-        
+    
+    public ControladorCitaMedica(){
+        listacitaMedica =  new ArrayList<CitaMedica>();
+       
+    }
+   
+    public void crear(CitaMedica citaMedica) {
+        ControladorMedico controladorMedico =  new ControladorMedico();
+        ControladorPaciente controladorPaciente = new ControladorPaciente();
+        String sql = "INSERT INTO citasMedicas (codigoCita, fechaCita, horaCita, paciente, medico, motivoCita " + ")" + " values (?,?,?,?,?,?);";
         try {
-            conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
-            System.out.println(sql);
+            conexion = new conexion();
+            ps = conexion.getConexion().prepareStatement(sql);
+            ps.setInt(1, citaMedica.getCita_id());
+            ps.setDate(2, (Date) citaMedica.getCita_fecha());
+            ps.setTime(3, citaMedica.getCita_hora());
+            ps.setInt(4, citaMedica.getPaciente().getPa_id());
+            ps.setInt(5, citaMedica.getMedico().getMedico_id());
+            ps.setString(6, citaMedica.getCita_motivo());
+           
+        } catch (Exception e) {
+            System.out.println("error " + e);
+            JOptionPane.showMessageDialog(null, "Los Datos no han sido Guardados");
+        } finally {
+        conexion.desconectar();
         }
     }
     
