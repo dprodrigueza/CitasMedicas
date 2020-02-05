@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class ControladorPaciente {
     
-    private Connection con;
+    //private Connection con;
     private List<Paciente> pacientes;
     
     
