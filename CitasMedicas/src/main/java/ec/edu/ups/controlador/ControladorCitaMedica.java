@@ -39,7 +39,7 @@ public class ControladorCitaMedica {
        
     }
    
-    public void crear(CitaMedica citaMedica) {
+    public void crearCitaMedica(CitaMedica citaMedica) {
         ControladorMedico controladorMedico =  new ControladorMedico();
         ControladorPaciente controladorPaciente = new ControladorPaciente();
         String sql = "INSERT INTO citasMedicas (codigoCita, fechaCita, horaCita, paciente, medico, motivoCita " + ")" + " values (?,?,?,?,?,?);";
@@ -62,7 +62,7 @@ public class ControladorCitaMedica {
     }
     
     
-    public void eliminar(CitaMedica citaMedica, int id) {
+    public void eliminarCitaMedica(CitaMedica citaMedica, int id) {
         try {
             statement =  conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
             statement.executeUpdate("DELETE FROM citasMedicas WHERE id =" + id + ";");
@@ -73,7 +73,23 @@ public class ControladorCitaMedica {
         }
      
     }
-     public void actualizar(CitaMedica cm, int id) {
+     public void modificarCitaMedica(CitaMedica citaMedica, int id) {
+         
+         try {
+             statement =  conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
+             statement.executeUpdate("UPDATE citasMedicas set cita_id  = '" + citaMedica.getCita_id()
+            + "', cita_fecha = '" + citaMedica.getCita_fecha()
+            + "', cita_hora = '" + citaMedica.getCita_hora()
+            + "', cita_motivo = '"+ citaMedica.getCita_motivo()
+            + "', cita_medico = '" + citaMedica.getMedico()
+            + "', cita_paciente = '" + citaMedica.getPaciente()
+            + "WHERE cita_id = '" + id + "';");
+             JOptionPane.showMessageDialog(null, "Citas Medicas Actualizados con Exito");
+                     
+         } catch (Exception e) {
+             System.out.println("error" + e);
+             JOptionPane.showMessageDialog(null, "Datos no actualizados");
+         }
          
          
     String sql = "UPDATE cita_medica  SET   cita_id  = '" + cm.getCita_id()
@@ -84,15 +100,15 @@ public class ControladorCitaMedica {
             + "', cita_paciente = '" + cm.getPaciente()
           
                 + " WHERE cita_id ='" + id + "';";
-        System.out.println(sql);
-        try {
-            conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error  " + ex.getMessage());
-        }
-    }
-    
+//        System.out.println(sql);
+//        try {
+//            conectar();
+//            Statement sta = con.createStatement();
+//            sta.executeUpdate(sql);
+//            desconectar();
+//        } catch (SQLException ex) {
+//            System.out.println("Error  " + ex.getMessage());
+//        }
+  }
+  
 }
