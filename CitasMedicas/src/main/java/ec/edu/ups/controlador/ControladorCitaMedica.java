@@ -62,50 +62,17 @@ public class ControladorCitaMedica {
     }
     
     
-    public void eliminar(int id) {
-         String sql = "DELETE FROM cita_medica WHERE  cita_id  =" + id + ";";
+    public void eliminar(CitaMedica citaMedica, int id) {
         try {
-            conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
+            statement =  conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
+            statement.executeUpdate("DELETE FROM citasMedicas WHERE id =" + id + ";");
+            JOptionPane.showMessageDialog(null, "cita medica eliminada ");
+        } catch (Exception e) {
+            System.out.println("problema al conectarse a la BD" + e );
+            JOptionPane.showMessageDialog(null, "cita medica no eliminada");
         }
-    }
-
-      public CitaMedica buscar(int id) {
-
-        String sql = "SELECT * FROM cita_medica WHERE  cita_id  ='"  + id + "';";
-        
-        //System.out.println(sql);
-         
-        try {
-            conectar();
-            Statement sta = con.createStatement();
-            ResultSet reset = sta.executeQuery(sql);
-            while (reset.next()) {
-                CitaMedica c = new CitaMedica(id);
-                //c.setIdCliente(reset.getInt(1));
-                c.setCita_fecha(reset.getDate(1));
-                c.setCita_hora(reset.getTime(2));
-                c.setCita_motivo(reset.getString(3));
-                
-               
-                //System.out.println("cedula sy existe");
-                return c;
-                
-            }
-            System.out.println("la cita no existe");
-           
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
-        }
-        return null;
-    }
      
-    
+    }
      public void actualizar(CitaMedica cm, int id) {
          
          
