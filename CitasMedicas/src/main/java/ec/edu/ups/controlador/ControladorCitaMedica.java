@@ -22,7 +22,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author VIVIANA
+ * @author Damian Sumba
+ * 
  */
 public class ControladorCitaMedica {
 
