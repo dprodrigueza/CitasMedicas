@@ -36,7 +36,7 @@ public class ControladorPaciente {
         con = null;
         try {
             //con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Progra3BD", "postgres", "7121997cumple");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "123456789kelly");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","123456789kelly");
             //con = DriverManager.getConnection("jdbc:mysql://192.168.3.251:3306/Factura", "root", "hpurl");
             //con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/facturas", "root", "123kelly");
             
