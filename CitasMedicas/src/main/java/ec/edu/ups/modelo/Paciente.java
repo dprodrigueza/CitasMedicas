@@ -35,6 +35,10 @@ public class Paciente {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Paciente(String text, String text0, String text1, String text2, String text3, int nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getPa_id() {
         return pa_id;
     }

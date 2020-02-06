@@ -15,7 +15,7 @@ import java.util.Date;
 public class CitaMedica {
     
   public int cita_id;
-  public Date cita_fecha;
+  public String cita_fecha;
   public Time cita_hora;
   public String cita_motivo;
   public Medico medico;
@@ -42,11 +42,11 @@ public class CitaMedica {
         this.cita_id = cita_id;
     }
 
-    public Date getCita_fecha() {
+    public String getCita_fecha() {
         return cita_fecha;
     }
 
-    public void setCita_fecha(Date cita_fecha) {
+    public void setCita_fecha(String cita_fecha) {
         this.cita_fecha = cita_fecha;
     }
 

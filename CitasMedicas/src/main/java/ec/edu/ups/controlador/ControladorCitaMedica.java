@@ -46,7 +46,7 @@ public class ControladorCitaMedica {
             conexion = new conexion();
             ps = conexion.getConexion().prepareStatement(sql);
             ps.setInt(1, citaMedica.getCita_id());
-            ps.setDate(2, (Date) citaMedica.getCita_fecha());
+            ps.setString(3, citaMedica.getCita_fecha());
             ps.setTime(3, citaMedica.getCita_hora());
             ps.setInt(4, citaMedica.getPaciente().getPa_id());
             ps.setInt(5, citaMedica.getMedico().getMedico_id());
