@@ -6,6 +6,8 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorPaciente;
+import ec.edu.ups.modelo.Paciente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,6 +52,11 @@ public class eliminarPaciente extends javax.swing.JInternalFrame {
         jLabel3.setText("Procedencia");
 
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Ocupacion");
 
@@ -181,6 +188,11 @@ public class eliminarPaciente extends javax.swing.JInternalFrame {
         ocupacion.setText("");
         System.out.println("jeewuifwheufhefuhewifheofu");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         dispose(); 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
