@@ -37,10 +37,10 @@ public class ControladorCitaMedica {
         System.out.println(""+sql);
         
         try {
-            conectar();
+        //    conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+           // desconectar();
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
             System.out.println(sql);
@@ -51,10 +51,10 @@ public class ControladorCitaMedica {
     public void eliminar(int id) {
          String sql = "DELETE FROM cita_medica WHERE  cita_id  =" + id + ";";
         try {
-            conectar();
+           // conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+            //desconectar();
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
         }
@@ -67,7 +67,7 @@ public class ControladorCitaMedica {
         //System.out.println(sql);
          
         try {
-            conectar();
+           // conectar();
             Statement sta = con.createStatement();
             ResultSet reset = sta.executeQuery(sql);
             while (reset.next()) {
@@ -84,7 +84,7 @@ public class ControladorCitaMedica {
             }
             System.out.println("la cita no existe");
            
-            desconectar();
+          //  desconectar();
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
         }
@@ -105,10 +105,10 @@ public class ControladorCitaMedica {
                 + " WHERE cita_id ='" + id + "';";
         System.out.println(sql);
         try {
-            conectar();
+          //  conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
-            desconectar();
+           // desconectar();
         } catch (SQLException ex) {
             System.out.println("Error  " + ex.getMessage());
         }

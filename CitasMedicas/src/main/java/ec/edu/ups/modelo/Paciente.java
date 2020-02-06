@@ -15,27 +15,38 @@ import java.util.Date;
 public class Paciente {
     
     
-  public int pa_id;
+  public String pa_id;
   public String pa_religion;
   public String  pa_recidencia;
   public String pa_procedencia;
   public String pa_ocupacion;
-  public Persona persona;
+ public int persona;
 
-    public Paciente(int pa_id) {
+  
+  
+  
+  
+
+       public Paciente(String pa_id, String pa_religion, String pa_recidencia, String pa_procedencia, String pa_ocupacion , int persona) {
         this.pa_id = pa_id;
         this.pa_religion = pa_religion;
         this.pa_recidencia = pa_recidencia;
         this.pa_procedencia = pa_procedencia;
         this.pa_ocupacion = pa_ocupacion;
-        this.persona = persona;
+        this.persona=persona;
+       
     }
 
-    public int getPa_id() {
+    public Paciente() {
+    }
+
+       
+   
+    public String getPa_id() {
         return pa_id;
     }
 
-    public void setPa_id(int pa_id) {
+    public void setPa_id(String pa_id) {
         this.pa_id = pa_id;
     }
 
@@ -71,11 +82,11 @@ public class Paciente {
         this.pa_ocupacion = pa_ocupacion;
     }
 
-    public Persona getPersona() {
+    public int getPersona() {
         return persona;
     }
 
-    public void setPersona(Persona persona) {
+    public void setPersona(int persona) {
         this.persona = persona;
     }
 

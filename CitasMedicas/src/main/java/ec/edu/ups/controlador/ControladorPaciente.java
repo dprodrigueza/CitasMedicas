@@ -6,12 +6,20 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.modelo.Paciente;
-import java.sql.Connection;
-import java.sql.DriverManager;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+
+  import java.sql.Connection;
+ import java.sql.DriverManager;
+ import java.sql.SQLException;
+ import java.util.Properties;
+
+
+
 
 /**
  *
@@ -19,7 +27,7 @@ import java.util.List;
  */
 public class ControladorPaciente {
     
-    //private Connection con;
+    private Connection con;
     private List<Paciente> pacientes;
     
     
@@ -27,32 +35,35 @@ public class ControladorPaciente {
     public void conectar() {
         con = null;
         try {
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "123kelly");
-           
-
+            //con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Progra3BD", "postgres", "7121997cumple");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "123456789kelly");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.3.251:3306/Factura", "root", "hpurl");
+            //con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/facturas", "root", "123kelly");
+            
 
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage() + " Error de Conexion sadjsjd");
+            System.out.println(ex.getMessage() + " Error de Conexion ");
         }
         if (con != null) {
-            System.out.println("ConexiÃ³n Exitosa");
+            System.out.println("Conexión Exitosa");
         }
     }
-    
-      public void desconectar() {
+
+    public void desconectar() {
         if (con != null) {
             try {
                 con.close();
-                System.out.println("DesconexiÃ³n Exitosa");
+                System.out.println("Desconexión Exitosa");
             } catch (SQLException ex) {
                 System.out.println("Error Al Desconectar " + ex.getMessage());
             }
         }
     }
     
+    
     public void crear(Paciente p) {
-        String sql = "INSERT INTO pacientes VALUES ( " + p.getPa_id()+"'" + p.getPa_religion()+"', '" + p.getPa_recidencia()+ "' , '"
-                + p.getPa_procedencia()+ "', '" + p.getPa_ocupacion()+ "', '" + p.getPersona()+ "' ,'"+");";
+        String sql = "INSERT INTO paciente VALUES ( '" + p.getPa_id()+"','" + p.getPa_religion()+"', '" + p.getPa_recidencia()+ "' , '"
+                + p.getPa_procedencia()+ "', '" + p.getPa_ocupacion()+ "', " + p.getPersona()+ ""+");";
         
         System.out.println(""+sql);
         
@@ -89,7 +100,7 @@ public class ControladorPaciente {
             Statement sta = con.createStatement();
             ResultSet reset = sta.executeQuery(sql);
             while (reset.next()) {
-                Paciente p = new Paciente(id);
+                Paciente p = new Paciente();
                 //c.setIdCliente(reset.getInt(1));
                 p.setPa_religion(reset.getString(1));
                 p.setPa_recidencia(reset.getString(2));
