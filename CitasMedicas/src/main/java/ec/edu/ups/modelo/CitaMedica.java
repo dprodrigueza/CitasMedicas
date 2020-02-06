@@ -30,6 +30,10 @@ public class CitaMedica {
         this.paciente = paciente;
     }
 
+    public CitaMedica() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCita_id() {
         return cita_id;
     }
