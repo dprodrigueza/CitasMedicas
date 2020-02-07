@@ -26,9 +26,6 @@ public class Diagnostico {
     public String CITAMEDICA_MEDICO_med_id;
     public String CITAMEDICA_PACIENTE_pa_cedula;
 
-    public Diagnostico() {
-    }
-
     public Diagnostico(int codigoDiagnostico, String enfermedadActual, String boca, String torax, String abdomen, String extremidades, String regionPerineal, String valoracionNeurologica, String ice10, String tratamientos, int HISTORIALCLINICO_hist_id, int CITAMEDICA_cita_id, String CITAMEDICA_MEDICO_med_id, String CITAMEDICA_PACIENTE_pa_cedula) {
         this.codigoDiagnostico = codigoDiagnostico;
         this.enfermedadActual = enfermedadActual;
@@ -163,8 +160,6 @@ public class Diagnostico {
         return "Diagnostico{" + "codigoDiagnostico=" + codigoDiagnostico + ", enfermedadActual=" + enfermedadActual + ", boca=" + boca + ", torax=" + torax + ", abdomen=" + abdomen + ", extremidades=" + extremidades + ", regionPerineal=" + regionPerineal + ", valoracionNeurologica=" + valoracionNeurologica + ", ice10=" + ice10 + ", tratamientos=" + tratamientos + ", HISTORIALCLINICO_hist_id=" + HISTORIALCLINICO_hist_id + ", CITAMEDICA_cita_id=" + CITAMEDICA_cita_id + ", CITAMEDICA_MEDICO_med_id=" + CITAMEDICA_MEDICO_med_id + ", CITAMEDICA_PACIENTE_pa_cedula=" + CITAMEDICA_PACIENTE_pa_cedula + '}';
     }
 
-    
-    
-    
-    
+   
+
 }
