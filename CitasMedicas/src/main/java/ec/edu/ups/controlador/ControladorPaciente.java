@@ -27,8 +27,8 @@ public class ControladorPaciente {
     private List<Paciente> pacientes;
 
     public void crear(Paciente p) {
-         con = null;
-        
+        con = null;
+
         String sql = "INSERT INTO paciente VALUES ('" + p.getPac_cedula() + "', '" + p.getPa_religion() + "', '" + p.getPa_recidencia() + "' , '"
                 + p.getPa_procedencia() + "', '" + p.getPa_ocupacion() + "', '" + p.getPERSONA_per_cedula() + "'" + ");";
 
@@ -40,12 +40,11 @@ public class ControladorPaciente {
             s.executeUpdate(sql);
             c.desconectar();
 
-            
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
             System.out.println(sql);
         }
-        
+
     }
 
     public void eliminar(String id) {
@@ -65,26 +64,32 @@ public class ControladorPaciente {
         String sql = "SELECT * FROM paciente WHERE  pa_cedula  ='" + id + "';";
 
         try {
-            conector.getConexion();
-            Statement sta = con.createStatement();
-            ResultSet reset = sta.executeQuery(sql);
+            conexion c = new conexion();
+            Connection con = c.getConexion();
+            con = c.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet reset = ps.executeQuery();
+
             while (reset.next()) {
-                Paciente p = new Paciente();
 
-                p.setPa_religion(reset.getString(1));
-                p.setPa_recidencia(reset.getString(2));
-                p.setPa_procedencia(reset.getString(3));
-                p.setPa_ocupacion(reset.getString(4));
+                
 
-                return p;
+                    Paciente p = new Paciente();
 
+                    p.setPa_religion(reset.getString(2));
+                    p.setPa_recidencia(reset.getString(3));
+                    p.setPa_procedencia(reset.getString(4));
+                    p.setPa_ocupacion(reset.getString(5));
+
+                    return p;
+
+                
             }
-            System.out.println("paciente no existe");
-
-            conector.desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
+            c.desconectar();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
         return null;
     }
 
@@ -98,10 +103,12 @@ public class ControladorPaciente {
                 + " WHERE pa_cedula ='" + id + "';";
         System.out.println(sql);
         try {
-            conector.getConexion();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            conector.desconectar();
+            conexion c = new conexion();
+            Connection con = c.getConexion();
+            con = c.getConexion();
+            Statement s = con.createStatement();
+            s.executeUpdate(sql);
+            c.desconectar();
         } catch (SQLException ex) {
             System.out.println("Error  " + ex.getMessage());
         }

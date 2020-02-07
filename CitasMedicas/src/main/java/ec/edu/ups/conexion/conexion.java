@@ -35,6 +35,8 @@ public class conexion {
         url = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     }
 
+  
+
     public Connection getConexion() {
         try {
             Class.forName(driver);
