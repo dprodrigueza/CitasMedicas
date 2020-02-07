@@ -306,7 +306,8 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PersonaBD cPersona = new PersonaBD();
-        Paciente paciente = controladorpaciente.buscar(cedula.getText());
+        Paciente paciente = new Paciente();
+        paciente = controladorpaciente.buscar(cedula.getText());
         Persona persona = cPersona.BuscarPersona(cedula.getText());
         
         txtNombres.setText(persona.getNombres());
