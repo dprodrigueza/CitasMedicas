@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
 
 /**
  *
- * @author Damián Sumba
+ * @author Damiï¿½n Sumba
  */
 public class VentanaCrearCita extends javax.swing.JInternalFrame {
 
@@ -200,7 +200,7 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,7 +224,9 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         CitaMedica citaMedica =  new CitaMedica();
         ControladorCitaMedica controladorCitaMedica =  new ControladorCitaMedica();
-        int id = Integer.valueOf(txtCodigo.getText());
+        String id = txtCodigo.getText();
+        String fecha = txtFecha.getText();
+        String hora =  txtHora.getText();
         
         
         
