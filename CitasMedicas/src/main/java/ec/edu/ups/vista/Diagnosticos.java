@@ -46,7 +46,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
         Diagnostico d = new Diagnostico();
         ControladorDiagnostico dBD = new ControladorDiagnostico();
 
-        d.setCodigoDiagnostico(Integer.parseInt(idiag.getText()));
+      
         d.setEnfermedadActual(enfactu.getText());
         d.setBoca(boca.getText());
         d.setTorax(torax.getText());
