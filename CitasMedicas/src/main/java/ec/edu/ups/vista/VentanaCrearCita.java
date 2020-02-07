@@ -273,8 +273,8 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         citaMedica.setCita_id(id);
         citaMedica.setCita_fecha(fecha);
         citaMedica.setCita_hora(hora);
-        citaMedica.setPaciente(p);
-        citaMedica.setMedico(m);
+        citaMedica.setMEDICO_med_id(txtMedico.getText());
+        citaMedica.setPACIENTE_pa_cedula(txtPaciente.getText());
         citaMedica.setCita_motivo(motivo);
         
         controladorCitaMedica.crearCitaMedica(citaMedica);

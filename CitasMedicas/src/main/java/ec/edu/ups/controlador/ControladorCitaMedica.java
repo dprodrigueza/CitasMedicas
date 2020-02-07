@@ -39,18 +39,21 @@ public class ControladorCitaMedica {
     }
 
     public void crearCitaMedica(CitaMedica citaMedica) {
-        ControladorMedico controladorMedico = new ControladorMedico();
-        ControladorPaciente controladorPaciente = new ControladorPaciente();
-        String sql = "INSERT INTO citasMedicas (codigoCita, fechaCita, horaCita, paciente, medico, motivoCita " + ")" + " values (?,?,?,?,?,?);";
+        String sql = "INSERT INTO CITAMEDICA (cita_id, cita_fecha, cita_hora, cita_motivo, MEDICO_med_id, PACIENTE_pa_cedula " + ")" + " values (?,?,?,?,?,?);";
         try {
             conexion = new conexion();
             ps = conexion.getConexion().prepareStatement(sql);
             ps.setInt(1, citaMedica.getCita_id());
-            ps.setString(3, citaMedica.getCita_fecha());
+            ps.setString(2, citaMedica.getCita_fecha());
             ps.setString(3, citaMedica.getCita_hora());
-            ps.setString(4, citaMedica.getPaciente().getPac_cedula());
-            ps.setString(5, citaMedica.getMedico().getMed_id());
-            ps.setString(6, citaMedica.getCita_motivo());
+            ps.setString(4, citaMedica.getCita_motivo());
+            ps.setString(5, citaMedica.MEDICO_med_id);
+            ps.setString(6, citaMedica.PACIENTE_pa_cedula);
+            ps.execute();
+            
+            System.out.println(ps);
+            
+            System.out.println(sql);
 
         } catch (Exception e) {
             System.out.println("error " + e);
@@ -80,8 +83,8 @@ public class ControladorCitaMedica {
                     + "', cita_fecha = '" + citaMedica.getCita_fecha()
                     + "', cita_hora = '" + citaMedica.getCita_hora()
                     + "', cita_motivo = '" + citaMedica.getCita_motivo()
-                    + "', cita_medico = '" + citaMedica.getMedico()
-                    + "', cita_paciente = '" + citaMedica.getPaciente()
+                    + "', cita_medico = '" + citaMedica.getMEDICO_med_id()
+                    + "', cita_paciente = '" + citaMedica.getPACIENTE_pa_cedula()
                     + "WHERE cita_id = '" + id + "';");
             JOptionPane.showMessageDialog(null, "Citas Medicas Actualizados con Exito");
 
