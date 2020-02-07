@@ -8,26 +8,13 @@ package ec.edu.ups.controlador;
 import ec.edu.ups.conexion.ConexionBD;
 import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.Paciente;
-<<<<<<< Updated upstream
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-=======
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
->>>>>>> Stashed changes
 import java.sql.ResultSet;
-//import java.sql.SQLException;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-
-  import java.sql.Connection;
- import java.sql.DriverManager;
- import java.sql.SQLException;
- import java.util.Properties;
-
-
-
 
 /**
  *
@@ -38,49 +25,9 @@ public class ControladorPaciente {
     private Connection con;
     private conexion conector;
     private List<Paciente> pacientes;
-<<<<<<< Updated upstream
-    
-    
-
-    public void conectar() {
-        con = null;
-        try {
-            //con = DriverManager.getConnection("jdbc:postgresql://localhost:5433/Progra3BD", "postgres", "7121997cumple");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","123456789kelly");
-            //con = DriverManager.getConnection("jdbc:mysql://192.168.3.251:3306/Factura", "root", "hpurl");
-            //con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/facturas", "root", "123kelly");
-            
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage() + " Error de Conexion ");
-        }
-        if (con != null) {
-            System.out.println("Conexión Exitosa");
-        }
-    }
-
-    public void desconectar() {
-        if (con != null) {
-            try {
-                con.close();
-                System.out.println("Desconexión Exitosa");
-            } catch (SQLException ex) {
-                System.out.println("Error Al Desconectar " + ex.getMessage());
-            }
-        }
-    }
-    
-    
-    public void crear(Paciente p) {
-        String sql = "INSERT INTO paciente VALUES ( '" + p.getPa_id()+"','" + p.getPa_religion()+"', '" + p.getPa_recidencia()+ "' , '"
-                + p.getPa_procedencia()+ "', '" + p.getPa_ocupacion()+ "', " + p.getPersona()+ ""+");";
-        
-        System.out.println(""+sql);
-=======
 
     public void crear(Paciente p) {
          con = null;
->>>>>>> Stashed changes
         
         String sql = "INSERT INTO paciente VALUES ('" + p.getPac_cedula() + "', '" + p.getPa_religion() + "', '" + p.getPa_recidencia() + "' , '"
                 + p.getPa_procedencia() + "', '" + p.getPa_ocupacion() + "', '" + p.getPERSONA_per_cedula() + "'" + ");";
@@ -123,11 +70,7 @@ public class ControladorPaciente {
             ResultSet reset = sta.executeQuery(sql);
             while (reset.next()) {
                 Paciente p = new Paciente();
-<<<<<<< Updated upstream
-                //c.setIdCliente(reset.getInt(1));
-=======
 
->>>>>>> Stashed changes
                 p.setPa_religion(reset.getString(1));
                 p.setPa_recidencia(reset.getString(2));
                 p.setPa_procedencia(reset.getString(3));

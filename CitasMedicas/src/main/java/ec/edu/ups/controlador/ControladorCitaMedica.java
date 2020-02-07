@@ -9,42 +9,40 @@ import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.CitaMedica;
 import ec.edu.ups.modelo.Paciente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author VIVIANA
+ * @author Damian Sumba
+ * 
  */
 public class ControladorCitaMedica {
 
     private Connection con;
-    private List<CitaMedica> citaMedica;
+    private List<CitaMedica> listacitaMedica;
     private Statement statement;
     private ResultSet r;
     private conexion conexion;
     private PreparedStatement ps;
 
-    public void crear(CitaMedica cm) {
-        String sql = "INSERT INTO cita_medica VALUES ( " + cm.getCita_id() + "'" + cm.getCita_fecha() + "', '" + cm.getCita_hora() + "' , '"
-                + cm.getCita_motivo() + "', '" + cm.getMedico() + "', '" + cm.getPaciente() + "' ,'" + ");";
+    public ControladorCitaMedica() {
+        
+    }
 
-        System.out.println("" + sql);
-
+    public void crearCitaMedica(CitaMedica citaMedica) {
+        ControladorMedico controladorMedico = new ControladorMedico();
+        ControladorPaciente controladorPaciente = new ControladorPaciente();
+        String sql = "INSERT INTO citasMedicas (codigoCita, fechaCita, horaCita, paciente, medico, motivoCita " + ")" + " values (?,?,?,?,?,?);";
         try {
-<<<<<<< Updated upstream
-            //    conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            // desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
-            System.out.println(sql);
-=======
             conexion = new conexion();
             ps = conexion.getConexion().prepareStatement(sql);
             ps.setInt(1, citaMedica.getCita_id());
@@ -59,69 +57,39 @@ public class ControladorCitaMedica {
             JOptionPane.showMessageDialog(null, "Los Datos no han sido Guardados");
         } finally {
             conexion.desconectar();
->>>>>>> Stashed changes
         }
     }
 
-    public void eliminar(int id) {
-        String sql = "DELETE FROM cita_medica WHERE  cita_id  =" + id + ";";
+    public void eliminarCitaMedica(CitaMedica citaMedica, int id) {
         try {
-            // conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            //desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
+            statement = conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
+            statement.executeUpdate("DELETE FROM citasMedicas WHERE id =" + id + ";");
+            JOptionPane.showMessageDialog(null, "cita medica eliminada ");
+        } catch (Exception e) {
+            System.out.println("problema al conectarse a la BD" + e);
+            JOptionPane.showMessageDialog(null, "cita medica no eliminada");
         }
+
     }
 
-    public CitaMedica buscar(int id) {
+    public void modificarCitaMedica(CitaMedica citaMedica, int id) {
 
-        String sql = "SELECT * FROM cita_medica WHERE  cita_id  ='" + id + "';";
-
-        //System.out.println(sql);
         try {
-            // conectar();
-            Statement sta = con.createStatement();
-            ResultSet reset = sta.executeQuery(sql);
-            while (reset.next()) {
-                CitaMedica c = new CitaMedica(id);
-                //c.setIdCliente(reset.getInt(1));
-                c.setCita_fecha(reset.getDate(1));
-                c.setCita_hora(reset.getTime(2));
-                c.setCita_motivo(reset.getString(3));
+            statement = conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
+            statement.executeUpdate("UPDATE citasMedicas set cita_id  = '" + citaMedica.getCita_id()
+                    + "', cita_fecha = '" + citaMedica.getCita_fecha()
+                    + "', cita_hora = '" + citaMedica.getCita_hora()
+                    + "', cita_motivo = '" + citaMedica.getCita_motivo()
+                    + "', cita_medico = '" + citaMedica.getMedico()
+                    + "', cita_paciente = '" + citaMedica.getPaciente()
+                    + "WHERE cita_id = '" + id + "';");
+            JOptionPane.showMessageDialog(null, "Citas Medicas Actualizados con Exito");
 
-                //System.out.println("cedula sy existe");
-                return c;
-
-            }
-            System.out.println("la cita no existe");
-
-            //  desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
+        } catch (Exception e) {
+            System.out.println("error" + e);
+            JOptionPane.showMessageDialog(null, "Datos no actualizados");
         }
-        return null;
-    }
 
-    public void actualizar(CitaMedica cm, int id) {
-
-        String sql = "UPDATE cita_medica  SET   cita_id  = '" + cm.getCita_id()
-                + "', cita_fecha = '" + cm.getCita_fecha()
-                + "', cita_hora = '" + cm.getCita_hora()
-                + "', cita_motivo = '" + cm.getCita_motivo()
-                + "', cita_medico = '" + cm.getMedico()
-                + "', cita_paciente = '" + cm.getPaciente()
-                + " WHERE cita_id ='" + id + "';";
-        System.out.println(sql);
-        try {
-            //  conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            // desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error  " + ex.getMessage());
-        }
     }
 
 }

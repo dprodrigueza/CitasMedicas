@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.vista.eliminarPaciente;
+import ec.edu.ups.vista.crearPaciente;
+import ec.edu.ups.vista.actualizarPaciente;
+
 /**
  *
  * @author VIVIANA
@@ -36,17 +40,16 @@ public class principal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -62,10 +65,20 @@ public class principal extends javax.swing.JFrame {
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 275, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("paciente");
+        jMenu4.setText("Personas");
+
+        jMenuItem7.setText("Registrar");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem7);
+
+        jMenu1.setText("Paciente");
 
         jMenuItem1.setText("crear");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -91,10 +104,7 @@ public class principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jMenu4.add(jMenu1);
 
         jMenu3.setText("Medico");
 
@@ -114,9 +124,7 @@ public class principal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem8);
 
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Personas");
+        jMenu4.add(jMenu3);
 
         jMenuItem6.setText("Listado");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -125,14 +133,6 @@ public class principal extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jMenuItem6);
-
-        jMenuItem7.setText("Registrar");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem7);
 
         jMenuBar1.add(jMenu4);
 
@@ -222,6 +222,7 @@ public class principal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -234,7 +235,6 @@ public class principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
