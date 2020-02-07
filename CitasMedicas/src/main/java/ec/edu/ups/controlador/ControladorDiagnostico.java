@@ -36,6 +36,7 @@ public class ControladorDiagnostico {
     public ControladorDiagnostico() {
 
         listaDiagnstico = new ArrayList<Diagnostico>();
+<<<<<<< HEAD
         
     }
 
@@ -66,52 +67,76 @@ public void crear(Diagnostico diagnostico) {
 		
 
 			ps.executeUpdate();
+=======
+>>>>>>> 5e6b9f8f540e8969d0072021492e22007fc7bb03
 
-			System.out.println(ps);
-			{
+    }
 
-			}
+    public void crear(Diagnostico diagnostico) {
+        Connection con = null;
+        String sql = "insert into diagnostico ('diag_id', 'diag_enfermedadActual', 'diag_boca', 'diag_torax', 'diag_abdomen' , 'diag_extremidades', "
+                + "'diag_regionPerineal', 'diag_valoracionNeuronal', 'diag_ie10', 'diag_tratamiento', 'CITAMEDICA_cita_id', 'CITAMEDICA_PACIENTE_pa_cedula', 'HISTORIAL CLINICO_hist_id') "
+                + "   values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			ConexionBD.close(con);
-		}
+        try {
+            con = ConexionBD.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
 
-	}
+            ps.setInt(1, diagnostico.getCodigoDiagnostico());
+            ps.setString(2, diagnostico.getEnfermedadActual());
+            ps.setString(3, diagnostico.getBoca());
+            ps.setString(4, diagnostico.getTorax());
+            ps.setString(5, diagnostico.getAbdomen());
+            ps.setString(6, diagnostico.getExtremidades());
+            ps.setString(7, diagnostico.getRegionPerineal());
+            ps.setString(8, diagnostico.getValoracionNeurologica());
+            ps.setString(9, diagnostico.getIce10());
+            ps.setString(10, diagnostico.getTratamientos());
+            ps.setInt(11, diagnostico.getCITAMEDICA_cita_id());
+            ps.setString(12, diagnostico.getCITAMEDICA_MEDICO_med_id());
+            ps.setString(13, diagnostico.getCITAMEDICA_PACIENTE_pa_cedula());
 
+            System.out.println(ps);
+            ps.executeUpdate();
 
+            {
 
+            }
 
-public int obtenerCodigo() {
-    	Connection con = null;
-    	con = ConexionBD.getConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConexionBD.close(con);
+        }
+
+    }
+
+    public int obtenerCodigo() {
+        Connection con = null;
+        con = ConexionBD.getConnection();
         int codigo = 0;
 //        
         String sql = "SELECT count(diag_id)"
                 + "	FROM diagnostico;";
-       
+
         Statement sentencia;
         try {
-        	PreparedStatement ps = con.prepareStatement(sql);
-        	ResultSet rs = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
             rs.next();
             codigo = rs.getInt(1);
             rs.close();
-            
+
         } catch (SQLException ex) {
             System.out.println("Error de SQL " + ex);
         }
-    
+
         return ++codigo;
     }
 
-
-	
-
     public void modificarDiagnostico(Diagnostico diagnostico) {
         String sql = "UPDATE Diagnostico set enfermedadActual=?, boca=?, torax=?, abdomen=?, extremidades=?, regionPerineal=?, valoracionNeurologica=?, ice10=?, tratamientos=?  where cedula='" + diagnostico.getCodigoDiagnostico() + "';";
-        
+
         try {
             conexion = new conexion();
             ps = conexion.getConexion().prepareStatement(sql);

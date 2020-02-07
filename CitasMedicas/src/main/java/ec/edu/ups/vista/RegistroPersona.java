@@ -23,6 +23,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class RegistroPersona extends JFrame {
+    PersonaBD p = new PersonaBD();
 
 	public JPanel contentPane;
 	public JTextField textId;
@@ -85,6 +86,12 @@ public class RegistroPersona extends JFrame {
 		textId.setBounds(197, 68, 116, 22);
 		contentPane.add(textId);
 		textId.setColumns(10);
+              textId.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+  
+        textId.setText(String.valueOf(p.obtenerCodigo()));
+      }
+    });
 		
 		textCedula = new JTextField();
 		textCedula.addKeyListener(new KeyAdapter() {

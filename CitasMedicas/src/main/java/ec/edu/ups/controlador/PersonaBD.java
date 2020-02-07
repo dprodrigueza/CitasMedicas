@@ -109,6 +109,42 @@ public class PersonaBD {
 		return persona;
 	}
 
+        
+        
+        
+        
+        
+        
+        public int obtenerCodigo() {
+    	Connection con = null;
+    	con = ConexionBD.getConnection();
+        int codigo = 0;
+//        
+        String sql = "SELECT count(per_id)"
+                + "	FROM persona;";
+       
+        Statement sentencia;
+        try {
+        	PreparedStatement ps = con.prepareStatement(sql);
+        	ResultSet rs = ps.executeQuery();
+            rs.next();
+            codigo = rs.getInt(1);
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println("Error de SQL " + ex);
+        }
+    
+        return ++codigo;
+    }
+
+
+        
+        
+        
+        
+        
+        
 	// Metodo Buscar
 
 	public Persona BuscarPersona(String cedula) {
