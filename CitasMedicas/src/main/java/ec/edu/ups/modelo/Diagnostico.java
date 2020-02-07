@@ -25,6 +25,8 @@ public class Diagnostico {
     public int CITAMEDICA_cita_id;
     public String CITAMEDICA_MEDICO_med_id;
     public String CITAMEDICA_PACIENTE_pa_cedula;
+    
+    public Diagnostico(){}
 
     public Diagnostico(int codigoDiagnostico, String enfermedadActual, String boca, String torax, String abdomen, String extremidades, String regionPerineal, String valoracionNeurologica, String ice10, String tratamientos, int HISTORIALCLINICO_hist_id, int CITAMEDICA_cita_id, String CITAMEDICA_MEDICO_med_id, String CITAMEDICA_PACIENTE_pa_cedula) {
         this.codigoDiagnostico = codigoDiagnostico;
