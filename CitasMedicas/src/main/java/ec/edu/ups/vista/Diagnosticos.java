@@ -48,7 +48,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
         d.setCodigoDiagnostico(Integer.parseInt(idiag.getText()));
         d.setEnfermedadActual(enfactu.getText());
         d.setBoca(boca.getText());
-        d.setMed_password(passwordField.getText());
+        d.setTorax(torax.getText());
         d.setMed_per_cedula(textCedula.getText());
         d.setMed_numero(1);
 
