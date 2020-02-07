@@ -12,9 +12,18 @@ import ec.edu.ups.controlador.ControladorPaciente;
 import ec.edu.ups.modelo.CitaMedica;
 import ec.edu.ups.modelo.Medico;
 import ec.edu.ups.modelo.Paciente;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.Time;
 import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,6 +70,7 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        txtImprimir = new javax.swing.JButton();
 
         setTitle("Nuevo");
 
@@ -179,8 +189,20 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         );
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
+
+        txtImprimir.setText("Imprimir");
+        txtImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtImprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,6 +220,10 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
                     .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtImprimir)
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +242,9 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(75, 75, 75))
+                .addGap(18, 18, 18)
+                .addComponent(txtImprimir)
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -250,8 +278,74 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        CitaMedica citaMedica = new CitaMedica();
+        ControladorCitaMedica  controladorCitaMedica =  new ControladorCitaMedica();
+        ControladorPaciente controladorPaciente =  new ControladorPaciente();
+        ControladorMedico controladorMedico =  new ControladorMedico();
+        
+        int id = Integer.valueOf(txtCodigo.getText());
+        String fecha = txtFecha.getText();
+        String hora =  txtHora.getText();
+        Paciente p = new Paciente();
+        p = controladorPaciente.buscar(txtPaciente.getText());
+        Medico m =  new Medico();
+        m = controladorMedico.BuscarMedico(txtMedico.getText());
+        String motivo = txtMotivo.getText();
+        
+        citaMedica.setCita_id(id);
+        citaMedica.setCita_fecha(fecha);
+        citaMedica.setCita_hora(hora);
+        citaMedica.setPaciente(p);
+        citaMedica.setMedico(m);
+        citaMedica.setCita_motivo(motivo);
+        
+        controladorCitaMedica.modificarCitaMedica(citaMedica, id);
+        limpiar();
+    }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void txtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirActionPerformed
+        // TODO add your handling code here:
+        try {
+            PrinterJob gap = PrinterJob.getPrinterJob();
+            gap.setPrintable((Printable) this);
+
+            boolean top = gap.printDialog();
+
+            if (top) {
+                gap.print();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error al imprimor ");
+        }
+    }//GEN-LAST:event_txtImprimirActionPerformed
+
+    public void limpiar (){
+     
+        txtBuscar.setText("");
+        txtCodigo.setText("");
+        txtFecha.setText("");
+        txtHora.setText("");
+        txtMedico.setText("");
+        txtPaciente.setText("");
+        txtMotivo.setText("");
+    
+    }
+    
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex > 0) {
+            return NO_SUCH_PAGE;
+        }
+
+        Graphics2D hub = (Graphics2D) graphics;
+        hub.translate(pageFormat.getImageableX() + 30, pageFormat.getImageableY() + 30);
+        hub.scale(0.5, 0.5);
+
+        jPanel1.printAll(graphics);
+        //tablaProductos.printAll(graphics);
+        return PAGE_EXISTS;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -271,8 +365,10 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
+    private javax.swing.JButton txtImprimir;
     private javax.swing.JTextField txtMedico;
     private javax.swing.JTextField txtMotivo;
     private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables
 }
+
