@@ -279,6 +279,8 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         
         controladorCitaMedica.crearCitaMedica(citaMedica);
         
+        limpiar();
+        
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -301,8 +303,8 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         citaMedica.setCita_id(id);
         citaMedica.setCita_fecha(fecha);
         citaMedica.setCita_hora(hora);
-        citaMedica.setPaciente(p);
-        citaMedica.setMedico(m);
+        citaMedica.setPACIENTE_pa_cedula(txtPaciente.getText());
+        citaMedica.setMEDICO_med_id(txtMedico.getText());
         citaMedica.setCita_motivo(motivo);
         
         controladorCitaMedica.modificarCitaMedica(citaMedica, id);
@@ -321,7 +323,7 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
                 gap.print();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error al imprimor ");
+            JOptionPane.showMessageDialog(null, "error al imprimir ");
         }
     }//GEN-LAST:event_txtImprimirActionPerformed
 

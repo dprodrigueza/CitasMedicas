@@ -55,6 +55,11 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setText("ID");
 
         jLabel2.setText("Descripcion");
@@ -175,6 +180,16 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActionPerformed
 
+<<<<<<< HEAD
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+=======
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
@@ -202,6 +217,7 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+>>>>>>> cdcd8de132beeac2b7920ecec69c1d8385e98bd2
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea descrip;
