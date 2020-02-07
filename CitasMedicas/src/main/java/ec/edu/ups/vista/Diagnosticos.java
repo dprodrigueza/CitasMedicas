@@ -49,8 +49,16 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
         d.setEnfermedadActual(enfactu.getText());
         d.setBoca(boca.getText());
         d.setTorax(torax.getText());
-        d.setMed_per_cedula(textCedula.getText());
-        d.setMed_numero(1);
+        d.setAbdomen(abd.getText());
+        d.setExtremidades(extr.getText());
+        d.setRegionPerineal(regperi.getText());
+        d.setValoracionNeurologica(neuro.getText());
+        d.setIce10(String.valueOf(cboCie.getSelectedItem()));
+        d.setTratamientos(tratamien.getText());
+        d.setCITAMEDICA_cita_id(Integer.parseInt(cita_id.getText()));
+        d.setCITAMEDICA_PACIENTE_pa_cedula(cedula.getText());
+        d.setHISTORIALCLINICO_hist_id(Integer.parseInt(historial_id.getText()));
+        
 
         dBD.crear(d);
         ;
@@ -86,6 +94,12 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         cboCie = new javax.swing.JComboBox<>();
+        cita_id = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cedula = new javax.swing.JTextField();
+        historial_id = new javax.swing.JTextField();
 
         jLabel1.setText("DIAGNOSTICO");
 
@@ -125,7 +139,19 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
             }
         });
 
-        cboCie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G89 Dolor, no clasificado bajo otro concepto", "J11 Gripe debida a virus de la gripe no identificado", "J11.0 Gripe debida a virus de la gripe no identificado con neumonÃ­a", "J11.00 Gripe debida a virus de la gripe no identificado con tipo de neumonÃ­a no especificado", "J11.1 Gripe debida a virus de la gripe no identificado con otro tipo de manifestaciones respiratorias", "J11.2 Gripe debida a virus de la gripe no identificado con manifestaciones gastrointestinales", "K37 Apendicitis (neumocÃ³cica) (retrocecal) ", "K36 Apendicitis crÃ³nica (recurrente) ", "K36 Apendicitis curada (obliterativa) ", "K36 obstructiva ", "obstructiva ", " " }));
+        cboCie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G89 Dolor, no clasificado bajo otro concepto", "J11 Gripe debida a virus de la gripe no identificado", "J11.0 Gripe debida a virus de la gripe no identificado con neumonía", "J11.00 Gripe debida a virus de la gripe no identificado con tipo de neumonía no especificado", "J11.1 Gripe debida a virus de la gripe no identificado con otro tipo de manifestaciones respiratorias", "J11.2 Gripe debida a virus de la gripe no identificado con manifestaciones gastrointestinales", "K37 Apendicitis (neumocócica) (retrocecal) ", "K36 Apendicitis crónica (recurrente) ", "K36 Apendicitis curada (obliterativa) ", "K36 obstructiva ", "obstructiva ", " " }));
+
+        cita_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cita_idActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Cita Id");
+
+        jLabel13.setText("Cedula Paciente:");
+
+        jLabel14.setText("Historial Clinico");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,10 +160,6 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(41, 41, 41)
-                        .addComponent(idiag, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +197,24 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(135, 135, 135)
                                 .addComponent(cboCie, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(41, 41, 41)
+                        .addComponent(idiag, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(cita_id, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(historial_id, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -194,7 +233,13 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(idiag, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idiag, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cita_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(historial_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -234,7 +279,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(tratamien)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -252,38 +297,36 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        Diagnostico c = new Diagnostico();
-        c.setCodigoDiagnostico(Integer.parseInt(idiag.getText()));
-        c.setEnfermedadActual(enfactu.getText());
-        c.setBoca(boca.getText());
-        c.setTorax(torax.getText());
-        c.setAbdomen(abd.getText());
-        c.setExtremidades(extr.getText());
-        c.setRegionPerineal(regperi.getText());
-        c.setValoracionNeurologica(neuro.getText());
-        c.setIce10(String.valueOf(cboCie.getSelectedItem()));
-        c.setTratamientos(tratamien.getText());
+       
  
-        
-        
-        JOptionPane.showMessageDialog(this, "Diagnostico Agregado correctamente");
+        guardarC();
 
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cita_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cita_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cita_idActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField abd;
     private javax.swing.JTextField boca;
     private javax.swing.JComboBox<String> cboCie;
+    private javax.swing.JTextField cedula;
+    private javax.swing.JTextField cita_id;
     private javax.swing.JTextField enfactu;
     private javax.swing.JTextField extr;
+    private javax.swing.JTextField historial_id;
     private javax.swing.JTextField idiag;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
