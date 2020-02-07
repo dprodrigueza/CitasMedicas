@@ -11,6 +11,7 @@ import ec.edu.ups.modelo.Diagnostico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -77,6 +78,35 @@ public void crear(Diagnostico diagnostico) {
 		}
 
 	}
+
+
+
+
+public int obtenerCodigo() {
+    	Connection con = null;
+    	con = ConexionBD.getConnection();
+        int codigo = 0;
+//        
+        String sql = "SELECT count(diag_id)"
+                + "	FROM diagnostico;";
+       
+        Statement sentencia;
+        try {
+        	PreparedStatement ps = con.prepareStatement(sql);
+        	ResultSet rs = ps.executeQuery();
+            rs.next();
+            codigo = rs.getInt(1);
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println("Error de SQL " + ex);
+        }
+    
+        return ++codigo;
+    }
+
+
+	
 
     public void modificarDiagnostico(Diagnostico diagnostico) {
         String sql = "UPDATE Diagnostico set enfermedadActual=?, boca=?, torax=?, abdomen=?, extremidades=?, regionPerineal=?, valoracionNeurologica=?, ice10=?, tratamientos=?  where cedula='" + diagnostico.getCodigoDiagnostico() + "';";
