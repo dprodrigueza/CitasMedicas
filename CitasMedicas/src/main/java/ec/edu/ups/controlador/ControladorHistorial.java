@@ -7,10 +7,12 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.Historial_Clinico;
+import ec.edu.ups.modelo.Paciente;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  *
@@ -18,6 +20,10 @@ import java.sql.Statement;
  */
 public class ControladorHistorial {
      
+     private Connection con;
+    private conexion conector;
+    private List<Historial_Clinico> historialclinico;
+    
       public int obtenerCodigo() {
         String sql = "SELECT MAX(pro_id) FROM HISTORIALCLINICO ";
         int codigo = 0;
@@ -26,16 +32,36 @@ public class ControladorHistorial {
         
     }
     
-    public void crear(Historial_Clinico p) {
-        String sql = "INSERT INTO `HISTORIALCLINICO` "
-                + "(`hist_descripcion`, `hist_tipo`, `hist_fecha`, "
-                + "`PACIENTE_pa_cedula`) "
-                + "VALUES "
-                + "('" + p.getDescripcion() + "', "
-                + "'" +  p.getTipo() +"', "
-                + "now() , "
-                + "'" + p.getPACIENTE_pa_cedula() + "');"; 
+//    public void crear(Historial_Clinico p) {
+//        String sql = "INSERT INTO `HISTORIALCLINICO` "
+//                + "(`hist_descripcion`, `hist_tipo`, `hist_fecha`, "
+//                + "`PACIENTE_pa_cedula`) "
+//                + "VALUES "
+//                + "('" + p.getDescripcion() + "', "
+//                + "'" +  p.getTipo() +"', "
+//                + "now() , "
+//                + "'" + p.getPACIENTE_pa_cedula() + "');"; 
+//
+//
+//        try {
+//            conexion c = new conexion();
+//            Connection con = c.getConexion();
+//            con = c.getConexion();
+//            Statement s = con.createStatement();
+//            s.executeUpdate(sql);
+//            c.desconectar();
+//
+//        } catch (SQLException e) {
+//            System.out.println("Error en el SQL " + e);
+//        }
+//
+//    }
+//}
+public void crear(Historial_Clinico p) {
+        con = null;
 
+        String sql = "INSERT INTO HISTORIALCLINICO VALUES (" + p.getCodigoHistorial() + ", '" + p.getDescripcion() + "', '" + p.getTipo()+ "' , '"
+                + p.getFecha() + "', '" + p.getPACIENTE_pa_cedula() + "'" + ");";
 
         try {
             conexion c = new conexion();
@@ -45,9 +71,9 @@ public class ControladorHistorial {
             s.executeUpdate(sql);
             c.desconectar();
 
-        } catch (SQLException e) {
-            System.out.println("Error en el SQL " + e);
+        } catch (SQLException ex) {
+            System.out.println("Error " + ex.getMessage());
+            System.out.println(sql);
         }
 
-    }
-}
+    }}
