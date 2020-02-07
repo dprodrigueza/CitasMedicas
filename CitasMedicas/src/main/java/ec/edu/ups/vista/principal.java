@@ -212,7 +212,7 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        VentanaCitasMedica vC = new VentanaCitasMedica();
+        VentanaCitasMedicas vC = new VentanaCitasMedicas();
         desktopPane.add(vC);
         vC.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
