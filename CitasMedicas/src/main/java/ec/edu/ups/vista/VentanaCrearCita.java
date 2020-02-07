@@ -62,6 +62,10 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Nuevo");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos:"));
