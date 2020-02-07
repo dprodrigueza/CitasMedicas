@@ -37,9 +37,12 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaCrearCita
      */
+    ControladorCitaMedica ccm;
+    
     public VentanaCrearCita() {
-        
-        initComponents();
+         initComponents();
+        ccm = new ControladorCitaMedica();
+        txtCodigo.setText(String.valueOf(ccm.obtenerCodigo()));
         
     }
 

@@ -134,5 +134,27 @@ public class ControladorCitaMedica {
         
         return citaMedica;
     }
+    
+       public int obtenerCodigo(){
+        conexion = new conexion();
+        CitaMedica citaMedica =  new CitaMedica();
+        ControladorCitaMedica controladorCitaMedica =  new ControladorCitaMedica();
+        int codigo = 0;
+        try {
+            statement = conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
+            r = statement.executeQuery("SELECT max(cita_id) from CITAMEDICA; ");
+            
+            r.next();
+            codigo=r.getInt(1);
+
+            
+            r.close();
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("problema al conectar  a la base de datos ");
+        }
+        return ++codigo;
+    }
+        
 
 }
