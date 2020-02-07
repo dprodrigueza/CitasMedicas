@@ -43,7 +43,7 @@ public class ControladorDiagnostico {
 public void crear(Diagnostico diagnostico) {
 		Connection con = null;
 		String sql = "insert into diagnostico (diag_id, diag_enfermedadActual, diag_boca, diag_torax, diag_abdomen , diag_extremidades, "
-                        + "diag_regionPerineal, diag_valoracionNeuronal, diag_ie10, diag_tratamiento, CITAMEDICA_cita_id, CITAMEDICA_PACIENTE_pa_cedula, HISTORIAL_CLINICO_hist_id) "
+                        + "diag_regionPerineal, diag_valoracionNeuronal, diag_ie10, diag_tratamiento, CITAMEDICA_cita_id, CITAMEDICA_PACIENTE_pa_cedula, HISTORIAL CLINICO_hist_id) "
 				+ "   values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
 		try {
