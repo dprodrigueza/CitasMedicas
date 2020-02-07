@@ -411,7 +411,8 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables
 
-public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+  
+     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         if (pageIndex > 0) {
             return NO_SUCH_PAGE;
         }
@@ -424,5 +425,8 @@ public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws
         //tablaProductos.printAll(graphics);
         return PAGE_EXISTS;
     }
-}
+    
+    }
+        
+
 
