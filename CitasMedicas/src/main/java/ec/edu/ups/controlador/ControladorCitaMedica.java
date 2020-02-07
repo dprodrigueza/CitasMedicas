@@ -7,6 +7,7 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.CitaMedica;
+import ec.edu.ups.modelo.Medico;
 import ec.edu.ups.modelo.Paciente;
 import java.sql.Connection;
 import java.sql.Date;
@@ -18,6 +19,7 @@ import java.sql.Statement;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.StampedLock;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,8 +96,42 @@ public class ControladorCitaMedica {
         }
 
     }
-    public CitaMedica buscarCita (int id){
+    public CitaMedica buscarCita (int id) throws SQLException{
+        
+        conexion =  new conexion();
         CitaMedica citaMedica =  new CitaMedica();
+        ControladorPaciente cp = new ControladorPaciente();
+        ControladorMedico cm =  new ControladorMedico();
+        ControladorCitaMedica controladorCitaMedica = new ControladorCitaMedica();
+        
+        try {
+            statement =  conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
+            r = statement.executeQuery("SELECT * FROM CITA_MEDICA WHERE cita_id = '" + id +"';");
+            
+            while (r.next()) {
+                int cod = r.getInt(1);
+                String fecha = r.getString(2);
+                String hora = r.getString(3);
+                String codPaciente = r.getString(4);
+                Paciente p = cp.buscar(codPaciente);
+                String codMedico = r.getString(5);
+                Medico m = cm.BuscarMedico(codMedico);
+                String motivo = r.getString(6);
+                
+                citaMedica.setCita_id(cod);
+                citaMedica.setCita_fecha(fecha);
+                citaMedica.setCita_hora(hora);
+                citaMedica.setMEDICO_med_id(codMedico);
+                citaMedica.setPACIENTE_pa_cedula(codPaciente);
+                citaMedica.setCita_motivo(motivo);
+                
+            }
+            r.close();
+            statement.close();
+        } catch (Exception e) {
+             System.out.println("error " + e);
+        }
+        
         return citaMedica;
     }
 
