@@ -19,12 +19,10 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
      * Creates new form actualizarPaciente
      */
      private ControladorPaciente controladorpaciente; 
-       private int  nombre ;
+      
     public actualizarPaciente() {
         initComponents();
-          controladorpaciente= new ControladorPaciente();
-          this.controladorpaciente.conectar();
-           nombre = 1;
+         
     }
 
     /**
@@ -45,7 +43,7 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
         ocupacion = new javax.swing.JTextField();
         recidencia = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Actualizar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
@@ -75,10 +73,10 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Cedula");
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Actualizar.setText("ACTUALIZAR");
+        Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ActualizarActionPerformed(evt);
             }
         });
 
@@ -115,10 +113,10 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton1)
+                                    .addComponent(Actualizar)
                                     .addGap(60, 60, 60)
                                     .addComponent(jButton2)))
-                            .addGap(0, 149, Short.MAX_VALUE)))
+                            .addGap(0, 118, Short.MAX_VALUE)))
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
@@ -148,7 +146,7 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
                         .addComponent(ocupacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(47, 47, 47)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
+                        .addComponent(Actualizar)
                         .addComponent(jButton2))
                     .addContainerGap(40, Short.MAX_VALUE)))
         );
@@ -168,10 +166,17 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_recidenciaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
         // TODO add your handling code here:
 
-        Paciente c = new Paciente(cedula.getText(), religion.getText(), recidencia.getText(), procedencia.getText(), ocupacion.getText(),nombre);
+        Paciente c = new Paciente();
+        c.setPac_cedula(cedula.getText());
+        c.setPa_religion(religion.getText());
+        c.setPa_recidencia(recidencia.getText());
+        c.setPa_procedencia(procedencia.getText());
+        c.setPa_ocupacion(ocupacion.getText());
+        c.setPERSONA_per_cedula(cedula.getText());
+        
         controladorpaciente.crear(c);
         JOptionPane.showMessageDialog(this, "Cliente creado correctamente");
 
@@ -180,9 +185,9 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
         recidencia.setText("");
         procedencia.setText("");
         ocupacion.setText("");
-        System.out.println("jeewuifwheufhefuhewifheofu");
+        
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ActualizarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -191,8 +196,8 @@ public class actualizarPaciente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Actualizar;
     private javax.swing.JTextField cedula;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -21,8 +21,29 @@ public class Diagnostico {
     public String valoracionNeurologica;
     public String ice10;
     public String tratamientos;
+    public int HISTORIALCLINICO_hist_id;
+    public int CITAMEDICA_cita_id;
+    public String CITAMEDICA_MEDICO_med_id;
+    public String CITAMEDICA_PACIENTE_pa_cedula;
 
     public Diagnostico() {
+    }
+
+    public Diagnostico(int codigoDiagnostico, String enfermedadActual, String boca, String torax, String abdomen, String extremidades, String regionPerineal, String valoracionNeurologica, String ice10, String tratamientos, int HISTORIALCLINICO_hist_id, int CITAMEDICA_cita_id, String CITAMEDICA_MEDICO_med_id, String CITAMEDICA_PACIENTE_pa_cedula) {
+        this.codigoDiagnostico = codigoDiagnostico;
+        this.enfermedadActual = enfermedadActual;
+        this.boca = boca;
+        this.torax = torax;
+        this.abdomen = abdomen;
+        this.extremidades = extremidades;
+        this.regionPerineal = regionPerineal;
+        this.valoracionNeurologica = valoracionNeurologica;
+        this.ice10 = ice10;
+        this.tratamientos = tratamientos;
+        this.HISTORIALCLINICO_hist_id = HISTORIALCLINICO_hist_id;
+        this.CITAMEDICA_cita_id = CITAMEDICA_cita_id;
+        this.CITAMEDICA_MEDICO_med_id = CITAMEDICA_MEDICO_med_id;
+        this.CITAMEDICA_PACIENTE_pa_cedula = CITAMEDICA_PACIENTE_pa_cedula;
     }
 
     public int getCodigoDiagnostico() {
@@ -105,10 +126,44 @@ public class Diagnostico {
         this.tratamientos = tratamientos;
     }
 
+    public int getHISTORIALCLINICO_hist_id() {
+        return HISTORIALCLINICO_hist_id;
+    }
+
+    public void setHISTORIALCLINICO_hist_id(int HISTORIALCLINICO_hist_id) {
+        this.HISTORIALCLINICO_hist_id = HISTORIALCLINICO_hist_id;
+    }
+
+    public int getCITAMEDICA_cita_id() {
+        return CITAMEDICA_cita_id;
+    }
+
+    public void setCITAMEDICA_cita_id(int CITAMEDICA_cita_id) {
+        this.CITAMEDICA_cita_id = CITAMEDICA_cita_id;
+    }
+
+    public String getCITAMEDICA_MEDICO_med_id() {
+        return CITAMEDICA_MEDICO_med_id;
+    }
+
+    public void setCITAMEDICA_MEDICO_med_id(String CITAMEDICA_MEDICO_med_id) {
+        this.CITAMEDICA_MEDICO_med_id = CITAMEDICA_MEDICO_med_id;
+    }
+
+    public String getCITAMEDICA_PACIENTE_pa_cedula() {
+        return CITAMEDICA_PACIENTE_pa_cedula;
+    }
+
+    public void setCITAMEDICA_PACIENTE_pa_cedula(String CITAMEDICA_PACIENTE_pa_cedula) {
+        this.CITAMEDICA_PACIENTE_pa_cedula = CITAMEDICA_PACIENTE_pa_cedula;
+    }
+
     @Override
     public String toString() {
-        return "Diagnostico{" + "codigoDiagnostico=" + codigoDiagnostico + ", enfermedadActual=" + enfermedadActual + ", boca=" + boca + ", torax=" + torax + ", abdomen=" + abdomen + ", extremidades=" + extremidades + ", regionPerineal=" + regionPerineal + ", valoracionNeurologica=" + valoracionNeurologica + ", ice10=" + ice10 + ", tratamientos=" + tratamientos + '}';
+        return "Diagnostico{" + "codigoDiagnostico=" + codigoDiagnostico + ", enfermedadActual=" + enfermedadActual + ", boca=" + boca + ", torax=" + torax + ", abdomen=" + abdomen + ", extremidades=" + extremidades + ", regionPerineal=" + regionPerineal + ", valoracionNeurologica=" + valoracionNeurologica + ", ice10=" + ice10 + ", tratamientos=" + tratamientos + ", HISTORIALCLINICO_hist_id=" + HISTORIALCLINICO_hist_id + ", CITAMEDICA_cita_id=" + CITAMEDICA_cita_id + ", CITAMEDICA_MEDICO_med_id=" + CITAMEDICA_MEDICO_med_id + ", CITAMEDICA_PACIENTE_pa_cedula=" + CITAMEDICA_PACIENTE_pa_cedula + '}';
     }
+
+    
     
     
     

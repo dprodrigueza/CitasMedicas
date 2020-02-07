@@ -36,6 +36,7 @@ public class ControladorCitaMedica {
         System.out.println("" + sql);
 
         try {
+<<<<<<< Updated upstream
             //    conectar();
             Statement sta = con.createStatement();
             sta.executeUpdate(sql);
@@ -43,6 +44,22 @@ public class ControladorCitaMedica {
         } catch (SQLException ex) {
             System.out.println("Error " + ex.getMessage());
             System.out.println(sql);
+=======
+            conexion = new conexion();
+            ps = conexion.getConexion().prepareStatement(sql);
+            ps.setInt(1, citaMedica.getCita_id());
+            ps.setString(3, citaMedica.getCita_fecha());
+            ps.setTime(3, citaMedica.getCita_hora());
+            ps.setString(4, citaMedica.getPaciente().getPac_cedula());
+            ps.setString(5, citaMedica.getMedico().getMed_id());
+            ps.setString(6, citaMedica.getCita_motivo());
+
+        } catch (Exception e) {
+            System.out.println("error " + e);
+            JOptionPane.showMessageDialog(null, "Los Datos no han sido Guardados");
+        } finally {
+            conexion.desconectar();
+>>>>>>> Stashed changes
         }
     }
 

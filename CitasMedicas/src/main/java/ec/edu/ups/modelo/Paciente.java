@@ -10,9 +10,10 @@ import java.util.Date;
 
 /**
  *
- * @author VIVIANA
+ * @author Diego
  */
 public class Paciente {
+<<<<<<< Updated upstream
     
     
   public String pa_id;
@@ -29,10 +30,23 @@ public class Paciente {
 
        public Paciente(String pa_id, String pa_religion, String pa_recidencia, String pa_procedencia, String pa_ocupacion , int persona) {
         this.pa_id = pa_id;
+=======
+
+    public String pac_cedula;
+    public String pa_religion;
+    public String pa_recidencia;
+    public String pa_procedencia;
+    public String pa_ocupacion;
+    public String PERSONA_per_cedula;
+
+    public Paciente(String pac_cedula, String pa_religion, String pa_recidencia, String pa_procedencia, String pa_ocupacion, String PERSONA_per_cedula) {
+        this.pac_cedula = pac_cedula;
+>>>>>>> Stashed changes
         this.pa_religion = pa_religion;
         this.pa_recidencia = pa_recidencia;
         this.pa_procedencia = pa_procedencia;
         this.pa_ocupacion = pa_ocupacion;
+<<<<<<< Updated upstream
         this.persona=persona;
        
     }
@@ -48,6 +62,20 @@ public class Paciente {
 
     public void setPa_id(String pa_id) {
         this.pa_id = pa_id;
+=======
+        this.PERSONA_per_cedula = PERSONA_per_cedula;
+    }
+
+    public Paciente() {
+    }
+
+    public String getPac_cedula() {
+        return pac_cedula;
+    }
+
+    public void setPac_cedula(String pac_cedula) {
+        this.pac_cedula = pac_cedula;
+>>>>>>> Stashed changes
     }
 
     public String getPa_religion() {
@@ -82,19 +110,26 @@ public class Paciente {
         this.pa_ocupacion = pa_ocupacion;
     }
 
+<<<<<<< Updated upstream
     public int getPersona() {
         return persona;
     }
 
     public void setPersona(int persona) {
         this.persona = persona;
+=======
+    public String getPERSONA_per_cedula() {
+        return PERSONA_per_cedula;
+    }
+
+    public void setPERSONA_per_cedula(String PERSONA_per_cedula) {
+        this.PERSONA_per_cedula = PERSONA_per_cedula;
+>>>>>>> Stashed changes
     }
 
     @Override
     public String toString() {
-        return "Paciente{" + "pa_id=" + pa_id + ", pa_religion=" + pa_religion + ", pa_recidencia=" + pa_recidencia + ", pa_procedencia=" + pa_procedencia + ", pa_ocupacion=" + pa_ocupacion + ", persona=" + persona + '}';
+        return "Paciente{" + "pac_cedula=" + pac_cedula + ", pa_religion=" + pa_religion + ", pa_recidencia=" + pa_recidencia + ", pa_procedencia=" + pa_procedencia + ", pa_ocupacion=" + pa_ocupacion + ", PERSONA_per_cedula=" + PERSONA_per_cedula + '}';
     }
-  
-  
-          
+
 }

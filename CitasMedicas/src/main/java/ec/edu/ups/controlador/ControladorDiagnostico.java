@@ -36,10 +36,18 @@ public class ControladorDiagnostico {
         
     }
 
-    public void registrarDiagnostico(Diagnostico diagnostico) {
+    public void registrarDiagnostico(Diagnostico diagnostico, String medico_cedula, int Historial_id, int cita_id) {
 
-        String sql = "INSERT INTO Diagnostico (codigoDiagnostico, enfermedadActual, boca, torax, abdomen, "
-                + "extremidades, regionPerineal, valoracionNeurologica, ice10, tratamientos " + ")" + " values (?,?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO `DIAGNOSTICO` (`diag_id`, "
+                + "`diag_enfermedadActual`, `diag_boca`, `diag_torax`, "
+                + "`diag_abdomen`, `diag_extremidades`, `diag_regionPerineal`, "
+                + "`diag_valoracionNeuronal`, `diag_ie10`, `diag_tratamiento`, "
+                + "`HISTORIAL CLINICO_hist_id`, `CITAMEDICA_cita_id`, "
+                + "`CITAMEDICA_MEDICO_med_id`)" + " "
+                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        
+        
+
 
         try {
             conexion = new conexion();
@@ -54,6 +62,9 @@ public class ControladorDiagnostico {
             ps.setString(8, diagnostico.getValoracionNeurologica());
             ps.setString(9, diagnostico.getIce10());
             ps.setString(10, diagnostico.getTratamientos());
+            ps.setInt(11, Historial_id);
+            ps.setInt(12, cita_id);
+            ps.setString(13, medico_cedula);
 
         } catch (Exception e) {
             System.out.println("error" + e.getMessage());

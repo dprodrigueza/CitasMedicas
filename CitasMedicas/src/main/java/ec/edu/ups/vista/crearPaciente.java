@@ -20,19 +20,16 @@ public class crearPaciente extends javax.swing.JInternalFrame {
      * Creates new form crearPaciente
      */
     
-    
-     private int  nombre ;
+
     public crearPaciente() {
         initComponents();
-         nombre = 1;
-         controladorpaciente= new ControladorPaciente();
-          this.controladorpaciente.conectar();
+        
+        controladorpaciente = new ControladorPaciente();
+        
     }
 
+    private ControladorPaciente controladorpaciente;
 
-    
-    private ControladorPaciente controladorpaciente;  
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,25 +173,29 @@ public class crearPaciente extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-      
-         Paciente c = new Paciente(cedula.getText(), religion.getText(), recidencia.getText(), procedencia.getText(), ocupacion.getText(),nombre);
-        controladorpaciente.crear(c);       
+
+        Paciente c = new Paciente();
+        c.setPac_cedula(cedula.getText());
+        c.setPa_religion(religion.getText());
+        c.setPa_recidencia(recidencia.getText());
+        c.setPa_procedencia(procedencia.getText());
+        c.setPa_ocupacion(ocupacion.getText());
+        c.setPERSONA_per_cedula(cedula.getText());
+ 
+        controladorpaciente.crear(c);
         JOptionPane.showMessageDialog(this, "Cliente creado correctamente");
-        
-  
-        
+
         cedula.setText("");
         religion.setText("");
         recidencia.setText("");
         procedencia.setText("");
         ocupacion.setText("");
-            System.out.println("jeewuifwheufhefuhewifheofu");
-      
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         dispose(); 
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

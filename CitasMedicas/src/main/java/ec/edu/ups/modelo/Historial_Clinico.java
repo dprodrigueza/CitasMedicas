@@ -17,11 +17,22 @@ public class Historial_Clinico {
     private String descripcion;
     private String tipo;
     private Date fecha;
+    private String PACIENTE_pa_cedula; 
     // private listaDiagnostico list<>;
 
     public Historial_Clinico() {
     }
 
+    public Historial_Clinico(int codigoHistorial, String descripcion, String tipo, Date fecha, String PACIENTE_pa_cedula) {
+        this.codigoHistorial = codigoHistorial;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.fecha = fecha;
+        this.PACIENTE_pa_cedula = PACIENTE_pa_cedula;
+    }
+
+    
+    
     public int getCodigoHistorial() {
         return codigoHistorial;
     }
@@ -54,9 +65,21 @@ public class Historial_Clinico {
         this.fecha = fecha;
     }
 
+    public String getPACIENTE_pa_cedula() {
+        return PACIENTE_pa_cedula;
+    }
+
+    public void setPACIENTE_pa_cedula(String PACIENTE_pa_cedula) {
+        this.PACIENTE_pa_cedula = PACIENTE_pa_cedula;
+    }
+
     @Override
     public String toString() {
-        return "Historial_Clinico{" + "codigoHistorial=" + codigoHistorial + ", descripcion=" + descripcion + ", tipo=" + tipo + ", fecha=" + fecha + '}';
+        return "Historial_Clinico{" + "codigoHistorial=" + codigoHistorial + ", descripcion=" + descripcion + ", tipo=" + tipo + ", fecha=" + fecha + ", PACIENTE_pa_cedula=" + PACIENTE_pa_cedula + '}';
     }
+    
+    
+
+    
     
 }

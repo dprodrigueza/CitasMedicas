@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author Damián Sumba
  */
 public class conexion {
-    
+
     private static Connection conn;
     private final String driver;
     private final String user;
@@ -29,10 +29,10 @@ public class conexion {
 //        user = "damian";
 //        password = "12345";
 //        url = "jdbc:mysql://192.168.2.10:3306/facturacion?autoReconnect=true&useSSL=false";
-        
+
         user = "root";
-        password = "";
-        url = "jdbc:mysql://localhost:3306/facturacion?autoReconnect=true&useSSL=false";
+        password = "7121997cumple";
+        url = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     }
 
     public Connection getConexion() {
@@ -59,6 +59,6 @@ public class conexion {
         if (conn == null) {
             System.out.println("conexion terminada");
         }
-        
+
     }
 }

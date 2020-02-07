@@ -1,178 +1,179 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.ups.controlador;
 
-import ec.edu.ups.modelo.Persona;
-import ec.edu.ups.modelo.Medico;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import ec.edu.ups.conexion.ConexionBD;
+import ec.edu.ups.modelo.Medico;
 
-
-
-/**
- *
- * @author GeovannyAbad
- */
 public class ControladorMedico {
-    
-    
-    private List<Medico> medica;
 
-    public ControladorMedico() {
-        medica = new ArrayList<Medico>();
-    }
-    
-    
+    ResultSet rs;
 
-   /* public void conectar() {
-        con = null;
+    // -------------- Para insertar CLIENTES ------------------- //
+    public void insertar(Medico medico) {
+        Connection con = null;
+        String sql = "insert into medico (med_id, med_numeroconsultorio, med_usuario, med_password, PERSONA_per_id, med_numero ) "
+                + "   values (?,?,?,?,?,?);";
+
         try {
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/citasMedicas", "root", "cuenca");
-           
+            con = ConexionBD.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
 
+            ps.setString(1, medico.getMed_id());
+            ps.setInt(2, medico.getMed_numeroconsultorio());
+            ps.setString(3, medico.getMed_usuario());
+            ps.setString(4, medico.getMed_password());
+            ps.setString(5, medico.getMed_per_cedula());
+            ps.setInt(6, medico.getMed_numero());
 
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage() + " Error de Conexion");
-        }
-        if (con != null) {
-            System.out.println("Conexión Exitosa");
-        }
-    }
-    
-      public void desconectar() {
-        if (con != null) {
-            try {
-                con.close();
-                System.out.println("Conexion Cerrada");
-            } catch (SQLException ex) {
-                System.out.println("Error Al Desconectar " + ex.getMessage());
+            ps.executeUpdate();
+
+            System.out.println(ps);
+            {
+
             }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConexionBD.close(con);
         }
-    }/*
-    
-    
-    
-    /*public boolean crear(Medico m) {
-        String sql = "INSERT INTO medico VALUES ( " + m.getMedico_id()+"'" + m.getMedico_numeroConsultorio()+"', '" + m.getMedico_usuario()+ "' , '"
-                + m.getMedico_password()+ "', '" + m.getMedico_persona_id()+ "' ,'"+");";
-        
-        System.out.println(""+sql);
-        
-        try {
-            conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error " + ex.getMessage());
-            System.out.println(sql);
-            return false;
-        }
-        return true;
-    }*/
-    
-    public boolean crear(Medico m){
-        
-        medica.add(m);
-        
-        return true;
-        
+
     }
-    
-    
-    /*public void eliminar(int medico_id) {
-         String sql = "DELETE FROM medico WHERE  cita_id  =" + medico_id + ";";
+
+    // Metodo Select y listar
+    public List<Medico> listar() {
+
+        List<Medico> medico = new ArrayList<Medico>();
+
+        String sql = "SELECT med_id, med_numeroconsultorio, med_usuario, med_password, PERSONA_per_id" + " FROM medico";
+
+        Connection con = null;
         try {
-            conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error al eliminar" + ex.getMessage());
+            con = ConexionBD.getConnection();// devuelve la conexion y se
+            // conecta
+            PreparedStatement ps = con.prepareStatement(sql);// prepara la
+            // consulta
+            ResultSet rs = ps.executeQuery();// un resultset es cada fila del
+            // sql
+            while (rs.next())// recorre cada una de las filas
+            {
+
+                Medico m = new Medico();
+                m.setMed_id(rs.getString("med_id"));
+                m.setMed_numeroconsultorio(rs.getInt("med_numeroconsultorio"));
+                m.setMed_usuario(rs.getString("med_usuario").trim());
+                m.setMed_password(rs.getString("med_password").trim());
+                m.setMed_per_cedula(rs.getString("PERSONA_per_id"));
+
+                medico.add(m);// agrega la lista
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConexionBD.close(con);
         }
+        return medico;
     }
-    
-    
-      public void actualizar(Medico m, int medico_id) {
-         
-         
-    String sql = "UPDATE medico  SET   med_id  = '" + m.getMedico_id()
-            + "', med_numeroConsultorio = '" + m.getMedico_numeroConsultorio()
-            + "', med_usuario = '" + m.getMedico_usuario()
-            + "', med_password = '"+ m.getMedico_password()
-            + "', med_persona_id = '" + m.getMedico_persona_id()
-            
-          
-                + " WHERE med_id ='" + medico_id + "';";
-        System.out.println("Actualizado con exito");
+
+    // Metodo Buscar
+    public Medico BuscarMedico(String id) {
+        String sql = "SELECT med_id, med_numeroconsultorio, med_usuario, med_password, PERSONA_per_id" + " FROM medico";
+        Medico m = new Medico();
+
+        Connection con = null;
         try {
-            conectar();
-            Statement sta = con.createStatement();
-            sta.executeUpdate(sql);
-            desconectar();
-        } catch (SQLException ex) {
-            System.out.println("Error  " + ex.getMessage());
+            con = ConexionBD.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            // resultset es todas las filas de la tabla
+            ResultSet rs = ps.executeQuery();
+            // el bucle para que recorrra todas las filas- hasta terminar todas
+            // las filas
+            while (rs.next()) {
+                // devulve el nombre de la fila correspondiente
+
+                if (rs.getString("med_id").trim().equals(id)) {
+
+                    m.setMed_numeroconsultorio(rs.getInt("med_numeroconsultorio".trim()));
+                    m.setMed_usuario(rs.getString("med_usuario".trim()));
+                    m.setMed_password(rs.getString("med_password".trim()));
+                    m.setMed_per_cedula(rs.getString("med_per_cedula".trim()));
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConexionBD.close(con);
         }
+        return m;
     }
-    
-    
-    
-    
-    
-    
-   // Metodo Buscar
 
-	public Medico BuscarMedico(int med_id) {
-		String sql = "SELECT med_id, med_numeroConsultorio,  med_usuario, med_password,  med_persona_id" + " FROM medico";
-		Medico m = new Medico();
+    // Metodo Actualizar
+    public boolean actualizar(Medico medico) {
+        boolean b = false;
+        Connection con = null;
+        try {
 
-		Connection con = null;
-		try {
-                    conectar();
-		
-			PreparedStatement ps = con.prepareStatement(sql);
-			// resultset es todas las filas de la tabla
-			ResultSet rs = ps.executeQuery();
-			// el bucle para que recorrra todas las filas hasta terminar todas
-			// las filas
-			while (rs.next()) {
-				// devulve el nombre de la fila correspondiente
+            String sql = "UPDATE medico SET med_id ='med_id'," + " med_numeroconsultorio =' med_numeroconsultorio', med_usuario ='med_usuario',"
+                    + " med_password =' med_password'," + " PERSONA_per_id ='PERSONA_per_id',"
+                    + "WHERE med_id = 'med_id';";
 
-				if (rs.getString("cli_id").trim().equals(med_id)) {
+            con = ConexionBD.getConnection();
+            Statement ps = con.createStatement();
+            ps.executeUpdate(sql);
+            b = true;
 
-					m.setMedico_id(rs.getInt("med_id".trim()));
-					m.setMedico_numeroConsultorio(rs.getInt("med_numeroConsultorio".trim()));
-					m.setMedico_usuario(rs.getString(" med_usuario".trim()));
-					m.setMedico_password(rs.getString("med_password".trim()));
-					m.setMedico_persona_id(rs.getInt("med_persona_id".trim()));
-					
-					
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConexionBD.close(con);
+        }
+        return b;
+    }
 
-				}
-			}
+    public List<Medico> listarBuscando(String descripcion) {
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			 desconectar();
-		}
-		return m;
-	}
-     */
-    
-    
-    
-    
-  
-    
+        List<Medico> persona = new ArrayList<Medico>();
+
+        String sql = "SELECT * FROM medico where PERSONA_per_id LIKE '" + descripcion + "%';";
+
+        try {
+            ConexionBD c = new ConexionBD();
+            Connection con = c.getConnection();
+            con = c.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next())// recorre cada una de las filas
+            {
+
+                Medico m = new Medico();
+                m.setMed_id(resultSet.getString("med_id"));
+                m.setMed_numeroconsultorio(resultSet.getInt("med_numeroconsultorio"));
+                m.setMed_usuario(resultSet.getString("med_usuario").trim());
+                m.setMed_password(resultSet.getString("med_password").trim());
+                m.setMed_per_cedula(resultSet.getString("PERSONA_per_id"));
+
+                persona.add(m);// agrega la lista
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+
+        return persona;
+    }
+
 }
