@@ -24,6 +24,7 @@ public class principal extends javax.swing.JFrame {
      private crearPaciente crearPacientes;
      private  actualizarPaciente  actualizarPacientes;
      private  eliminarPaciente eliminarPaceintes;
+     private  crearHistorial creHistorial;
     public principal() {
         initComponents();
     }
@@ -39,12 +40,15 @@ public class principal extends javax.swing.JFrame {
 
         jMenuItem3 = new javax.swing.JMenuItem();
         jSpinner1 = new javax.swing.JSpinner();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        crearp = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -53,8 +57,16 @@ public class principal extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        crearhis = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
+
+        jMenu5.setText("File");
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar2.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,13 +95,13 @@ public class principal extends javax.swing.JFrame {
 
         jMenu1.setText("Paciente");
 
-        jMenuItem1.setText("crear");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        crearp.setText("crear");
+        crearp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                crearpActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(crearp);
 
         jMenuItem2.setText("actualizar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +163,18 @@ public class principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu7.setText("Historial Clinico");
+
+        crearhis.setText("Crear ");
+        crearhis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearhisActionPerformed(evt);
+            }
+        });
+        jMenu7.add(crearhis);
+
+        jMenuBar1.add(jMenu7);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,12 +191,12 @@ public class principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void crearpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearpActionPerformed
         // TODO add your handling code here:
          crearPacientes = new crearPaciente();
         crearPacientes.setVisible(true);
      desktopPane.add(crearPacientes);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_crearpActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
@@ -217,6 +241,14 @@ public class principal extends javax.swing.JFrame {
         vC.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void crearhisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearhisActionPerformed
+        // TODO add your handling code here:
+        
+             creHistorial = new crearHistorial();
+        creHistorial.setVisible(true);
+     desktopPane.add(creHistorial);
+    }//GEN-LAST:event_crearhisActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,13 +286,18 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem crearhis;
+    private javax.swing.JMenuItem crearp;
     public javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
