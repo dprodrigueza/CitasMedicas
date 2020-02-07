@@ -6,8 +6,11 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorHistorial;
+import ec.edu.ups.modelo.Historial_Clinico;
+import ec.edu.ups.modelo.Paciente;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,8 +48,8 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         idhisto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        descrip = new javax.swing.JTextArea();
+        tipo = new javax.swing.JTextField();
         fecha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -67,9 +70,9 @@ public class crearHistorial extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descrip.setColumns(20);
+        descrip.setRows(5);
+        jScrollPane1.setViewportView(descrip);
 
         fecha.setEditable(false);
         fecha.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +82,11 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         });
 
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salir");
 
@@ -97,7 +105,7 @@ public class crearHistorial extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1)
@@ -138,7 +146,7 @@ public class crearHistorial extends javax.swing.JInternalFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(29, 29, 29)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,8 +170,31 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+         Historial_Clinico c = new Historial_Clinico();
+        c.setCodigoHistorial(Integer.parseInt( idhisto.getText()));
+        c.setFecha(fecha.getText());
+        c.setDescripcion(descrip.getText());
+        c.setTipo(tipo.getText());
+        c.setTipo(tipo.getText());
+        
+       
+ 
+        controladorHistorial.crear(c);
+        JOptionPane.showMessageDialog(this, "Historial creado correctamente");
+
+        idhisto.setText("");
+        fecha.setText("");
+        descrip.setText("");
+        tipo.setText("");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea descrip;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField idhisto;
     private javax.swing.JButton jButton1;
@@ -174,7 +205,6 @@ public class crearHistorial extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField tipo;
     // End of variables declaration//GEN-END:variables
 }
