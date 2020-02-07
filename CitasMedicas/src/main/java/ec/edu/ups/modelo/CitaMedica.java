@@ -16,7 +16,7 @@ public class CitaMedica {
     
   public int cita_id;
   public String cita_fecha;
-  public Time cita_hora;
+  public String cita_hora;
   public String cita_motivo;
   public Medico medico;
   public Paciente paciente;
@@ -28,6 +28,14 @@ public class CitaMedica {
         this.cita_motivo = cita_motivo;
         this.medico = medico;
         this.paciente = paciente;
+    }
+
+    public String getCita_hora() {
+        return cita_hora;
+    }
+
+    public void setCita_hora(String cita_hora) {
+        this.cita_hora = cita_hora;
     }
 
     public CitaMedica() {
@@ -50,13 +58,7 @@ public class CitaMedica {
         this.cita_fecha = cita_fecha;
     }
 
-    public Time getCita_hora() {
-        return cita_hora;
-    }
-
-    public void setCita_hora(Time cita_hora) {
-        this.cita_hora = cita_hora;
-    }
+    
 
     public String getCita_motivo() {
         return cita_motivo;

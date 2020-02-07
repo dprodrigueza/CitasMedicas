@@ -103,15 +103,12 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                          <Component id="txtPaciente" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="txtMotivo" max="32767" attributes="0"/>
+                      <Component id="txtMotivo" pref="175" max="32767" attributes="0"/>
                       <Component id="txtMedico" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtFecha" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtHora" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtCodigo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtPaciente" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

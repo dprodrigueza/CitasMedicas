@@ -5,10 +5,14 @@
  */
 package ec.edu.ups.vista;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import ec.edu.ups.controlador.ControladorCitaMedica;
+import ec.edu.ups.controlador.ControladorMedico;
 import ec.edu.ups.controlador.ControladorPaciente;
 import ec.edu.ups.modelo.CitaMedica;
+import ec.edu.ups.modelo.Medico;
 import ec.edu.ups.modelo.Paciente;
+import java.sql.Time;
 import java.util.Date;
 import javax.swing.JComboBox;
 
@@ -97,14 +101,12 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
                         .addComponent(jLabel4)
                         .addGap(108, 108, 108)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(txtPaciente))
-                    .addComponent(txtMotivo)
+                    .addComponent(txtMotivo, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                     .addComponent(txtMedico)
                     .addComponent(txtFecha)
                     .addComponent(txtHora)
-                    .addComponent(txtCodigo))
+                    .addComponent(txtCodigo)
+                    .addComponent(txtPaciente, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -224,10 +226,26 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         CitaMedica citaMedica =  new CitaMedica();
         ControladorCitaMedica controladorCitaMedica =  new ControladorCitaMedica();
-        String id = txtCodigo.getText();
+        ControladorPaciente controladorPaciente =  new ControladorPaciente();
+        ControladorMedico controladorMedico =  new ControladorMedico();
+        
+        int id = Integer.valueOf(txtCodigo.getText());
         String fecha = txtFecha.getText();
         String hora =  txtHora.getText();
+        Paciente p = new Paciente();
+        p = controladorPaciente.buscar(txtPaciente.getText());
+        Medico m =  new Medico();
+        m = controladorMedico.BuscarMedico(txtMedico.getText());
+        String motivo = txtMotivo.getText();
         
+        citaMedica.setCita_id(id);
+        citaMedica.setCita_fecha(fecha);
+        citaMedica.setCita_hora(hora);
+        citaMedica.setPaciente(p);
+        citaMedica.setMedico(m);
+        citaMedica.setCita_motivo(motivo);
+        
+        controladorCitaMedica.crearCitaMedica(citaMedica);
         
         
     }//GEN-LAST:event_btnGuardarActionPerformed
