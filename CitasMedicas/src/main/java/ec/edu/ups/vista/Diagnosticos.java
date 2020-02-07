@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ControladorDiagnostico;
 import ec.edu.ups.controlador.ControladorPaciente;
+import ec.edu.ups.modelo.Diagnostico;
 import ec.edu.ups.modelo.Paciente;
 import javax.swing.JOptionPane;
 
@@ -219,26 +220,23 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-         Diagnosticos c = new Diagnosticos();
-        c.set(idiag.getText());
-        c.set(enfactu.getText());
-        c.setPa_recidencia(boca.getText());
-        c.setPa_procedencia(torax.getText());
-        c.setPa_ocupacion(abd.getText());
-         c.setPa_religion(extr.getText());
-        c.setPa_recidencia(regperi.getText());
-        c.setPa_procedencia(neuro.getText());
-        c.setPa_ocupacion(ie.getText());
-        c.setPa_ocupacion(tratamien.getText());
+        Diagnostico c = new Diagnostico();
+        c.setCodigoDiagnostico(Integer.parseInt(idiag.getText()));
+        c.setEnfermedadActual(enfactu.getText());
+        c.setBoca(boca.getText());
+        c.setTorax(torax.getText());
+        c.setAbdomen(abd.getText());
+        c.setExtremidades(extr.getText());
+        c.setRegionPerineal(regperi.getText());
+        c.setValoracionNeurologica(neuro.getText());
+        c.setIce10(ie.getText());
+        c.setTratamientos(tratamien.getText());
  
-        controladorpaciente.crear(c);
-        JOptionPane.showMessageDialog(this, "Cliente creado correctamente");
+        
+        
+        JOptionPane.showMessageDialog(this, "Diagnostico Agregado correctamente");
 
-        cedula.setText("");
-        religion.setText("");
-        recidencia.setText("");
-        procedencia.setText("");
-        ocupacion.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
