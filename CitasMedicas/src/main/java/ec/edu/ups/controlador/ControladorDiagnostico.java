@@ -61,8 +61,9 @@ public void crear(Diagnostico diagnostico) {
 			ps.setString(9, diagnostico.getIce10());
 			ps.setString(10, diagnostico.getTratamientos());
 			ps.setInt(11, diagnostico.getCITAMEDICA_cita_id());
-                        ps.setString(12, diagnostico.getCITAMEDICA_MEDICO_med_id());
-			ps.setString(13, diagnostico.getCITAMEDICA_PACIENTE_pa_cedula());
+                        	ps.setString(12, diagnostico.getCITAMEDICA_PACIENTE_pa_cedula());
+                        ps.setInt(13, diagnostico.getHISTORIALCLINICO_hist_id());
+		
 
 			ps.executeUpdate();
 
