@@ -161,6 +161,11 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar:"));
 
@@ -200,6 +205,11 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         txtImprimir.setText("Imprimir");
         txtImprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -278,6 +288,7 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         citaMedica.setCita_motivo(motivo);
         
         controladorCitaMedica.crearCitaMedica(citaMedica);
+        limpiar();
         
         
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -301,8 +312,8 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         citaMedica.setCita_id(id);
         citaMedica.setCita_fecha(fecha);
         citaMedica.setCita_hora(hora);
-        citaMedica.setPaciente(p);
-        citaMedica.setMedico(m);
+        citaMedica.setPACIENTE_pa_cedula(txtPaciente.getText());
+        citaMedica.setMEDICO_med_id(txtMedico.getText());
         citaMedica.setCita_motivo(motivo);
         
         controladorCitaMedica.modificarCitaMedica(citaMedica, id);
@@ -321,9 +332,19 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
                 gap.print();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error al imprimor ");
+            JOptionPane.showMessageDialog(null, "error al imprimir ");
         }
     }//GEN-LAST:event_txtImprimirActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     public void limpiar (){
      
@@ -337,19 +358,7 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
     
     }
     
-    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        if (pageIndex > 0) {
-            return NO_SUCH_PAGE;
-        }
-
-        Graphics2D hub = (Graphics2D) graphics;
-        hub.translate(pageFormat.getImageableX() + 30, pageFormat.getImageableY() + 30);
-        hub.scale(0.5, 0.5);
-
-        jPanel1.printAll(graphics);
-        //tablaProductos.printAll(graphics);
-        return PAGE_EXISTS;
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -374,5 +383,19 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtMotivo;
     private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables
+
+public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex > 0) {
+            return NO_SUCH_PAGE;
+        }
+
+        Graphics2D hub = (Graphics2D) graphics;
+        hub.translate(pageFormat.getImageableX() + 30, pageFormat.getImageableY() + 30);
+        hub.scale(0.5, 0.5);
+
+        jPanel1.printAll(graphics);
+        //tablaProductos.printAll(graphics);
+        return PAGE_EXISTS;
+    }
 }
 

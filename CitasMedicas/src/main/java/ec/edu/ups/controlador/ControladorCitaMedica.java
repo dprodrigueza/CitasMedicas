@@ -94,5 +94,9 @@ public class ControladorCitaMedica {
         }
 
     }
+    public CitaMedica buscarCita (int id){
+        CitaMedica citaMedica =  new CitaMedica();
+        return citaMedica;
+    }
 
 }
