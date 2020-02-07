@@ -5,8 +5,10 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.conexion.ConexionBD;
 import ec.edu.ups.conexion.conexion;
 import ec.edu.ups.modelo.Diagnostico;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -36,43 +38,38 @@ public class ControladorDiagnostico {
         
     }
 
-    public void crear  (Diagnostico diagnostico, String medico_cedula, int Historial_id, int cita_id) {
+    
+public void crear(Diagnostico diagnostico) {
+		Connection con = null;
+		String sql = "insert into diagnostico (diag_id, diag_enfermedadActual, diag_boca, diag_torax, diag_abdomen , diag_extremidades, "
+                        + "diag_regionPerineal, diag_valoracionNeuronal, diag_ie10, diag_tratamiento, CITAMEDICA_cita_id, CITAMEDICA_PACIENTE_pa_id, HISTORIAL CLINICO_hist_id) "
+				+ "   values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
-        String sql = "INSERT INTO `DIAGNOSTICO` (`diag_id`, "
-                + "`diag_enfermedadActual`, `diag_boca`, `diag_torax`, "
-                + "`diag_abdomen`, `diag_extremidades`, `diag_regionPerineal`, "
-                + "`diag_valoracionNeuronal`, `diag_ie10`, `diag_tratamiento`, "
-                + "`HISTORIAL CLINICO_hist_id`, `CITAMEDICA_cita_id`, "
-                + "`CITAMEDICA_MEDICO_med_id`)" + " "
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
-        
-        
+		try {
+			con = ConexionBD.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
 
+			ps.setString(1, clientes.getCedula());
+			ps.setString(2, clientes.getNombres());
+			ps.setString(3, clientes.getApellidos());
+			ps.setString(4, clientes.getEmail());
+			ps.setString(5, clientes.getDireccion());
+			ps.setString(6, clientes.getTelefono());
 
-        try {
-            conexion = new conexion();
-            ps = conexion.getConexion().prepareStatement(sql);
-            ps.setInt(1, diagnostico.getCodigoDiagnostico());
-            ps.setString(2, diagnostico.getEnfermedadActual());
-            ps.setString(3, diagnostico.getBoca());
-            ps.setString(4, diagnostico.getTorax());
-            ps.setString(5, diagnostico.getAbdomen());
-            ps.setString(6, diagnostico.getExtremidades());
-            ps.setString(7, diagnostico.getRegionPerineal());
-            ps.setString(8, diagnostico.getValoracionNeurologica());
-            ps.setString(9, diagnostico.getIce10());
-            ps.setString(10, diagnostico.getTratamientos());
-            ps.setInt(11, Historial_id);
-            ps.setInt(12, cita_id);
-            ps.setString(13, medico_cedula);
+			ps.executeUpdate();
 
-        } catch (Exception e) {
-            System.out.println("error" + e.getMessage());
-        } finally {
-            conexion.desconectar();
-        }
+			System.out.println(ps);
+			{
 
-    }
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ConexionBD.close(con);
+		}
+
+	}
 
     public void modificarDiagnostico(Diagnostico diagnostico) {
         String sql = "UPDATE Diagnostico set enfermedadActual=?, boca=?, torax=?, abdomen=?, extremidades=?, regionPerineal=?, valoracionNeurologica=?, ice10=?, tratamientos=?  where cedula='" + diagnostico.getCodigoDiagnostico() + "';";
