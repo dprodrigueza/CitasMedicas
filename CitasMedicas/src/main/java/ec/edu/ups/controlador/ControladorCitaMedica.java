@@ -106,7 +106,7 @@ public class ControladorCitaMedica {
         
         try {
             statement =  conexion.getConexion().createStatement(r.TYPE_SCROLL_SENSITIVE, r.CONCUR_UPDATABLE);
-            r = statement.executeQuery("SELECT * FROM CITA_MEDICA WHERE cita_id = '" + id +"';");
+            r = statement.executeQuery("SELECT * FROM CITAMEDICA WHERE cita_id = '" + id +"';");
             
             while (r.next()) {
                 int cod = r.getInt(1);

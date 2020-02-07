@@ -172,6 +172,11 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         jLabel7.setText("Buscar:");
 
         jToggleButton1.setText("Buscar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -347,6 +352,23 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:}
+        ControladorCitaMedica controladorCitaMedica =  new ControladorCitaMedica();
+        CitaMedica citaMedica =  new CitaMedica();
+        if (txtBuscar.getText().equals("")) {
+            System.out.println("campo vacio");
+            JOptionPane.showMessageDialog(null, "campo vacio");
+        } else{
+            //txtCodigo.setText(citaMedica.getCita_id());
+            txtFecha.setText(citaMedica.getCita_fecha());
+            txtHora.setText(citaMedica.getCita_hora());
+            txtPaciente.setText(citaMedica.getPACIENTE_pa_cedula());
+            txtMedico.setText(citaMedica.getMEDICO_med_id());
+            txtMotivo.setText(citaMedica.getCita_motivo());
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     public void limpiar (){
      
