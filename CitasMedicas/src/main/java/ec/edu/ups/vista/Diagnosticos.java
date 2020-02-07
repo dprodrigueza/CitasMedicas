@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author VIVIANA
  */
 public class Diagnosticos extends javax.swing.JInternalFrame {
-
+   ControladorDiagnostico dBD = new ControladorDiagnostico();
     /**
      * Creates new form Diagnostico
      */
@@ -27,6 +27,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
     public Diagnosticos() {
         initComponents();
         controladorDiagnostico = new ControladorDiagnostico();
+        idiag.setText(String.valueOf(dBD.obtenerCodigo()));
     }
 
     /**
@@ -65,6 +66,34 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
 
     }
     
+    
+    
+    
+    public void codigo(int numeroOrig) {
+        String res = "";
+        if (numeroOrig >= 10) {
+            res = "" + numeroOrig;
+           idiag.setText(res);
+        }
+        if (numeroOrig >= 10000000) {
+            res = "0" + numeroOrig;
+            idiag.setText(res);
+        }
+        if (numeroOrig >= 1000000) {
+            res = "00" + numeroOrig;
+            idiag.setText(res);
+        }
+        if (numeroOrig >= 100000) {
+            res = "000" + numeroOrig;
+            idiag.setText(res);
+        }
+        if (numeroOrig >= 10000) {
+            res = "000" + numeroOrig;
+            idiag.setText(res);
+        }
+       
+//       
+    }
     
     
     
@@ -300,7 +329,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
        
  
         guardarC();
-
+codigo(dBD.obtenerCodigo());
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

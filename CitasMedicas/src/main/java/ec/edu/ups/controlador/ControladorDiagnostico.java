@@ -11,6 +11,7 @@ import ec.edu.ups.modelo.Diagnostico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -42,7 +43,7 @@ public class ControladorDiagnostico {
 public void crear(Diagnostico diagnostico) {
 		Connection con = null;
 		String sql = "insert into diagnostico (diag_id, diag_enfermedadActual, diag_boca, diag_torax, diag_abdomen , diag_extremidades, "
-                        + "diag_regionPerineal, diag_valoracionNeuronal, diag_ie10, diag_tratamiento, CITAMEDICA_cita_id, CITAMEDICA_PACIENTE_pa_id, HISTORIAL CLINICO_hist_id) "
+                        + "diag_regionPerineal, diag_valoracionNeuronal, diag_ie10, diag_tratamiento, CITAMEDICA_cita_id, CITAMEDICA_PACIENTE_pa_id, HISTORIAL_CLINICO_hist_id) "
 				+ "   values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
 		try {
@@ -77,6 +78,35 @@ public void crear(Diagnostico diagnostico) {
 		}
 
 	}
+
+
+
+
+public int obtenerCodigo() {
+    	Connection con = null;
+    	con = ConexionBD.getConnection();
+        int codigo = 0;
+//        
+        String sql = "SELECT count(diag_id)"
+                + "	FROM diagnostico;";
+       
+        Statement sentencia;
+        try {
+        	PreparedStatement ps = con.prepareStatement(sql);
+        	ResultSet rs = ps.executeQuery();
+            rs.next();
+            codigo = rs.getInt(1);
+            rs.close();
+            
+        } catch (SQLException ex) {
+            System.out.println("Error de SQL " + ex);
+        }
+    
+        return ++codigo;
+    }
+
+
+	
 
     public void modificarDiagnostico(Diagnostico diagnostico) {
         String sql = "UPDATE Diagnostico set enfermedadActual=?, boca=?, torax=?, abdomen=?, extremidades=?, regionPerineal=?, valoracionNeurologica=?, ice10=?, tratamientos=?  where cedula='" + diagnostico.getCodigoDiagnostico() + "';";
