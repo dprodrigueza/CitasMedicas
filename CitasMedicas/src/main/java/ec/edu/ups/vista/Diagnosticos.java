@@ -167,7 +167,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
             }
         });
 
-        cboCie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G89 Dolor, no clasificado bajo otro concepto", "J11 Gripe debida a virus de la gripe no identificado", "J11.0 Gripe debida a virus de la gripe no identificado con neumonía", "J11.00 Gripe debida a virus de la gripe no identificado con tipo de neumonía no especificado", "J11.1 Gripe debida a virus de la gripe no identificado con otro tipo de manifestaciones respiratorias", "J11.2 Gripe debida a virus de la gripe no identificado con manifestaciones gastrointestinales", "K37 Apendicitis (neumocócica) (retrocecal) ", "K36 Apendicitis crónica (recurrente) ", "K36 Apendicitis curada (obliterativa) ", "K36 obstructiva ", "obstructiva ", " " }));
+        cboCie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G89 Dolor, no clasificado bajo otro concepto", "J11 Gripe debida a virus de la gripe no identificado", "J11.0 Gripe debida a virus de la gripe no identificado con neumonï¿½a", "J11.00 Gripe debida a virus de la gripe no identificado con tipo de neumonï¿½a no especificado", "J11.1 Gripe debida a virus de la gripe no identificado con otro tipo de manifestaciones respiratorias", "J11.2 Gripe debida a virus de la gripe no identificado con manifestaciones gastrointestinales", "K37 Apendicitis (neumocï¿½cica) (retrocecal) ", "K36 Apendicitis crï¿½nica (recurrente) ", "K36 Apendicitis curada (obliterativa) ", "K36 obstructiva ", "obstructiva ", " " }));
 
         cita_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
