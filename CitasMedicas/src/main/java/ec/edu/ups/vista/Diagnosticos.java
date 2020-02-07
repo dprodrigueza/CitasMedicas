@@ -27,6 +27,7 @@ public class Diagnosticos extends javax.swing.JInternalFrame {
     public Diagnosticos() {
         initComponents();
         controladorDiagnostico = new ControladorDiagnostico();
+        idiag.setText(String.valueOf(dBD.obtenerCodigo()));
     }
 
     /**
