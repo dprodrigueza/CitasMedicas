@@ -20,8 +20,11 @@ import static java.awt.print.Printable.NO_SUCH_PAGE;
 import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -304,16 +307,14 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         CitaMedica citaMedica = new CitaMedica();
         ControladorCitaMedica  controladorCitaMedica =  new ControladorCitaMedica();
-        ControladorPaciente controladorPaciente =  new ControladorPaciente();
-        ControladorMedico controladorMedico =  new ControladorMedico();
+        
+       
         
         int id = Integer.valueOf(txtCodigo.getText());
         String fecha = txtFecha.getText();
         String hora =  txtHora.getText();
-        Paciente p = new Paciente();
-        p = controladorPaciente.buscar(txtPaciente.getText());
-        Medico m =  new Medico();
-        m = controladorMedico.BuscarMedico(txtMedico.getText());
+        
+        
         String motivo = txtMotivo.getText();
         
         citaMedica.setCita_id(id);
@@ -361,7 +362,12 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
             System.out.println("campo vacio");
             JOptionPane.showMessageDialog(null, "campo vacio");
         } else{
-            //txtCodigo.setText(citaMedica.getCita_id());
+            try {
+                citaMedica = controladorCitaMedica.buscarCita(Integer.parseInt(txtBuscar.getText()));
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaCrearCita.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            txtCodigo.setText(String.valueOf(citaMedica.getCita_id()));
             txtFecha.setText(citaMedica.getCita_fecha());
             txtHora.setText(citaMedica.getCita_hora());
             txtPaciente.setText(citaMedica.getPACIENTE_pa_cedula());

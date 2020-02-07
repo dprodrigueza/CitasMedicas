@@ -56,7 +56,7 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         cedula = new javax.swing.JTextField();
-        txtTipo = new javax.swing.JTextField();
+        cboTipo = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -107,6 +107,8 @@ public class crearHistorial extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Cedula Paciente:");
 
+        cboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADULTO", "ADOLESCENTE", "PRE NATAL", "NATAL", "DULTO MAYOR", "DISCAPACIDAD", " " }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,14 +125,18 @@ public class crearHistorial extends javax.swing.JInternalFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel2))
-                            .addGap(40, 40, 40)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton1)
-                                    .addGap(71, 71, 71)
-                                    .addComponent(jButton2))
-                                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(40, 40, 40)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jButton1)
+                                            .addGap(71, 71, 71)
+                                            .addComponent(jButton2))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(58, 58, 58)
+                                    .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addGap(93, 93, 93)
@@ -164,11 +170,11 @@ public class crearHistorial extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                    .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -203,7 +209,7 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         
         c.setPACIENTE_pa_cedula(cedula.getText());
         
-        c.setTipo(txtTipo.getText());
+        c.setTipo(String.valueOf(cboTipo.getSelectedItem()));
         
        
  
@@ -213,6 +219,8 @@ public class crearHistorial extends javax.swing.JInternalFrame {
         idhisto.setText("");
         fecha.setText("");
         descrip.setText("");
+        cedula.setText("");
+        
     }                                        
 
 /*
@@ -225,6 +233,7 @@ public class crearHistorial extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cboTipo;
     private javax.swing.JTextField cedula;
     private javax.swing.JTextArea descrip;
     private javax.swing.JTextField fecha;
@@ -238,6 +247,5 @@ public class crearHistorial extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
 }
