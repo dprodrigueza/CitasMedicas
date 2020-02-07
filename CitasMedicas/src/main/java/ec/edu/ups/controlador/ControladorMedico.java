@@ -34,9 +34,7 @@ public class ControladorMedico {
             ps.executeUpdate();
 
             System.out.println(ps);
-            {
-
-            }
+            
 
         } catch (Exception e) {
             e.printStackTrace();
