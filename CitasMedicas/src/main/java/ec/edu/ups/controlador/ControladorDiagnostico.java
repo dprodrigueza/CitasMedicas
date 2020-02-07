@@ -49,12 +49,19 @@ public void crear(Diagnostico diagnostico) {
 			con = ConexionBD.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, clientes.getCedula());
-			ps.setString(2, clientes.getNombres());
-			ps.setString(3, clientes.getApellidos());
-			ps.setString(4, clientes.getEmail());
-			ps.setString(5, clientes.getDireccion());
-			ps.setString(6, clientes.getTelefono());
+			ps.setInt(1, diagnostico.getCodigoDiagnostico());
+			ps.setString(2, diagnostico.getEnfermedadActual());
+			ps.setString(3, diagnostico.getBoca());
+			ps.setString(4, diagnostico.getTorax());
+			ps.setString(5, diagnostico.getAbdomen());
+			ps.setString(6, diagnostico.getExtremidades());
+                        ps.setString(7, diagnostico.getRegionPerineal());
+			ps.setString(8, diagnostico.getValoracionNeurologica());
+			ps.setString(9, diagnostico.getIce10());
+			ps.setString(10, diagnostico.getTratamientos());
+			ps.setInt(11, diagnostico.getCITAMEDICA_cita_id());
+                        ps.setString(12, diagnostico.getCITAMEDICA_MEDICO_med_id());
+			ps.setString(13, diagnostico.getCITAMEDICA_PACIENTE_pa_cedula());
 
 			ps.executeUpdate();
 
