@@ -224,7 +224,9 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         CitaMedica citaMedica =  new CitaMedica();
         ControladorCitaMedica controladorCitaMedica =  new ControladorCitaMedica();
-        int id = Integer.valueOf(txtCodigo.getText());
+        String id = txtCodigo.getText();
+        String fecha = txtFecha.getText();
+        String hora =  txtHora.getText();
         
         
         
