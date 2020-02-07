@@ -36,7 +36,7 @@ public class ControladorDiagnostico {
         
     }
 
-    public void registrarDiagnostico(Diagnostico diagnostico, String medico_cedula, int Historial_id, int cita_id) {
+    public void crear  (Diagnostico diagnostico, String medico_cedula, int Historial_id, int cita_id) {
 
         String sql = "INSERT INTO `DIAGNOSTICO` (`diag_id`, "
                 + "`diag_enfermedadActual`, `diag_boca`, `diag_torax`, "

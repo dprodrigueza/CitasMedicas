@@ -290,6 +290,8 @@ public class VentanaCrearCita extends javax.swing.JInternalFrame {
         controladorCitaMedica.crearCitaMedica(citaMedica);
         limpiar();
         
+        limpiar();
+        
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 

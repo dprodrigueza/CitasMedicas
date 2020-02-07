@@ -16,14 +16,14 @@ public class Historial_Clinico {
     private int codigoHistorial;
     private String descripcion;
     private String tipo;
-    private Date fecha;
+    private String fecha;
     private String PACIENTE_pa_cedula; 
     // private listaDiagnostico list<>;
 
     public Historial_Clinico() {
     }
 
-    public Historial_Clinico(int codigoHistorial, String descripcion, String tipo, Date fecha, String PACIENTE_pa_cedula) {
+    public Historial_Clinico(int codigoHistorial, String descripcion, String tipo, String  fecha, String PACIENTE_pa_cedula) {
         this.codigoHistorial = codigoHistorial;
         this.descripcion = descripcion;
         this.tipo = tipo;
@@ -57,11 +57,11 @@ public class Historial_Clinico {
         this.tipo = tipo;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
