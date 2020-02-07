@@ -71,18 +71,13 @@ public class ControladorPaciente {
             ResultSet reset = ps.executeQuery();
 
             while (reset.next()) {
-
-                
-
                     Paciente p = new Paciente();
-
-                    p.setPa_religion(reset.getString(2));
-                    p.setPa_recidencia(reset.getString(3));
-                    p.setPa_procedencia(reset.getString(4));
-                    p.setPa_ocupacion(reset.getString(5));
-
+                    p.setPa_religion(reset.getString("pa_religion".trim()));
+                    p.setPa_recidencia(reset.getString("pa_recidencia".trim()));
+                    p.setPa_procedencia(reset.getString("pa_procedencia".trim()));
+                    p.setPa_ocupacion(reset.getString("pa_ocupacion".trim()));
                     return p;
-
+                              
                 
             }
             c.desconectar();
