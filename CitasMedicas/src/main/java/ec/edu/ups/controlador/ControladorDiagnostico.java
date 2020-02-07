@@ -41,8 +41,8 @@ public class ControladorDiagnostico {
 
     public void crear(Diagnostico diagnostico) {
         Connection con = null;
-        String sql = "insert into diagnostico ('diag_id', 'diag_enfermedadActual', 'diag_boca', 'diag_torax', 'diag_abdomen' , 'diag_extremidades', "
-                + "'diag_regionPerineal', 'diag_valoracionNeuronal', 'diag_ie10', 'diag_tratamiento', 'CITAMEDICA_cita_id', 'CITAMEDICA_PACIENTE_pa_cedula', 'HISTORIAL CLINICO_hist_id') "
+        String sql = "insert into diagnostico (diag_id, diag_enfermedadActual, diag_boca, diag_torax, diag_abdomen , diag_extremidades, "
+                + "diag_regionPerineal, diag_valoracionNeuronal, diag_ie10, diag_tratamiento, CITAMEDICA_cita_id, CITAMEDICA_PACIENTE_pa_cedula, `HISTORIAL CLINICO_hist_id`) "
                 + "   values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try {
@@ -60,8 +60,8 @@ public class ControladorDiagnostico {
             ps.setString(9, diagnostico.getIce10());
             ps.setString(10, diagnostico.getTratamientos());
             ps.setInt(11, diagnostico.getCITAMEDICA_cita_id());
-            ps.setString(12, diagnostico.getCITAMEDICA_MEDICO_med_id());
-            ps.setString(13, diagnostico.getCITAMEDICA_PACIENTE_pa_cedula());
+            ps.setString(12, diagnostico.getCITAMEDICA_PACIENTE_pa_cedula());
+            ps.setInt(13, diagnostico.getHISTORIALCLINICO_hist_id());
 
             System.out.println(ps);
             ps.executeUpdate();
