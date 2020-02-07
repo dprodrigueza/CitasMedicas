@@ -83,7 +83,7 @@ public class ControladorMedico {
 
     // Metodo Buscar
     public Medico BuscarMedico(String id) {
-        String sql = "SELECT med_id, med_numeroconsultorio, med_usuario, med_password, PERSONA_per_id" + " FROM medico";
+        String sql = "SELECT med_id, med_numeroconsultorio, med_usuario, med_password, PERSONA_per_cedula" + " FROM medico where med_id=" + id;
         Medico m = new Medico();
 
         Connection con = null;
@@ -102,7 +102,7 @@ public class ControladorMedico {
                     m.setMed_numeroconsultorio(rs.getInt("med_numeroconsultorio".trim()));
                     m.setMed_usuario(rs.getString("med_usuario".trim()));
                     m.setMed_password(rs.getString("med_password".trim()));
-                    m.setMed_per_cedula(rs.getString("med_per_cedula".trim()));
+                    m.setMed_per_cedula(rs.getString("PERSONA_per_cedula".trim()));
 
                 }
             }

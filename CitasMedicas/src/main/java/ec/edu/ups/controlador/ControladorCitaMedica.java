@@ -85,8 +85,8 @@ public class ControladorCitaMedica {
                     + "', cita_fecha = '" + citaMedica.getCita_fecha()
                     + "', cita_hora = '" + citaMedica.getCita_hora()
                     + "', cita_motivo = '" + citaMedica.getCita_motivo()
-                    + "', cita_medico = '" + citaMedica.getMEDICO_med_id()
-                    + "', cita_paciente = '" + citaMedica.getPACIENTE_pa_cedula()
+                    + "', MEDICO_med_id= '" + citaMedica.getMEDICO_med_id()
+                    + "', PACIENTE_pa_cedula = '" + citaMedica.getPACIENTE_pa_cedula()
                     + "WHERE cita_id = '" + id + "';");
             JOptionPane.showMessageDialog(null, "Citas Medicas Actualizados con Exito");
 
@@ -112,11 +112,11 @@ public class ControladorCitaMedica {
                 int cod = r.getInt(1);
                 String fecha = r.getString(2);
                 String hora = r.getString(3);
-                String codPaciente = r.getString(4);
+                String codPaciente = r.getString(6);
                 Paciente p = cp.buscar(codPaciente);
                 String codMedico = r.getString(5);
                 Medico m = cm.BuscarMedico(codMedico);
-                String motivo = r.getString(6);
+                String motivo = r.getString(4);
                 
                 citaMedica.setCita_id(cod);
                 citaMedica.setCita_fecha(fecha);

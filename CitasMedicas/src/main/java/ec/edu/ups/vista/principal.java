@@ -57,6 +57,7 @@ public class principal extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         crearhis = new javax.swing.JMenuItem();
 
@@ -161,6 +162,14 @@ public class principal extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem9);
 
+        jMenuItem1.setText("Generar Diagnostico");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         jMenuBar1.add(jMenu2);
 
         jMenu7.setText("Historial Clinico");
@@ -249,6 +258,12 @@ public class principal extends javax.swing.JFrame {
      desktopPane.add(creHistorial);
     }//GEN-LAST:event_crearhisActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Diagnosticos diagnosticos = new  Diagnosticos();
+        desktopPane.add(diagnosticos);
+        diagnosticos.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,6 +313,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
